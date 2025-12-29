@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+  <title>Case Studies - EAI</title>
+  <style>
+    /* Case Study Specific Styles */
+    .case-studies-section {
+      padding: 80px 0;
+      background: var(--dark-light);
+      position: relative;
+    }
+
+    .case-studies-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 30px;
+    }
+
+    .case-study-card {
+      background: var(--dark);
+      border-radius: 12px;
+      overflow: hidden;
+      transition: var(--transition);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .case-study-card:hover {
+      transform: translateY(-8px);
+      border-color: var(--primary);
+      box-shadow: 0 15px 40px rgba(139, 69, 19, 0.2);
+    }
+
+    .case-study-image {
+      height: 200px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .case-study-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: var(--transition);
+    }
+
+    .case-study-card:hover .case-study-image img {
+      transform: scale(1.05);
+    }
+
+    .case-study-category {
+      position: absolute;
+      top: 15px;
+      left: 15px;
+      background: var(--primary);
+      color: var(--white);
+      padding: 5px 12px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 600;
+    }
+
+    .case-study-content {
+      padding: 25px;
+    }
+
+    .case-study-content h3 {
+      font-size: 1.4rem;
+      margin-bottom: 15px;
+      color: var(--white);
+      font-weight: 600;
+      line-height: 1.3;
+    }
+
+    .case-study-client {
+      color: var(--accent);
+      font-weight: 500;
+      margin-bottom: 15px;
+      display: block;
+    }
+
+    .case-study-excerpt {
+      color: rgba(255, 255, 255, 0.7);
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+
+    .case-study-meta {
+      display: flex;
+      justify-content: space-between;
+      color: rgba(255, 255, 255, 0.6);
+      font-size: 0.9rem;
+      margin-bottom: 20px;
+    }
+
+    .case-study-stats {
+      display: flex;
+      gap: 20px;
+      margin-bottom: 20px;
+      padding: 15px;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 8px;
+    }
+
+    .stat-item {
+      text-align: center;
+      flex: 1;
+    }
+
+    .stat-number {
+      display: block;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--accent);
+      margin-bottom: 5px;
+    }
+
+    .stat-label {
+      font-size: 0.8rem;
+      color: rgba(255, 255, 255, 0.6);
+    }
+
+    .case-study-actions {
+      display: flex;
+      gap: 10px;
+    }
+
+    .case-study-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      flex: 1;
+      background: transparent;
+      color: var(--white);
+      padding: 10px 15px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      text-decoration: none;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 6px;
+      transition: var(--transition);
+    }
+
+    .case-study-btn.primary {
+      background: var(--primary);
+      border-color: var(--primary);
+    }
+
+    .case-study-btn:hover {
+      background: var(--accent);
+      border-color: var(--accent);
+      transform: translateY(-2px);
+    }
+
+    /* Detailed Case Study Modal */
+    .case-study-modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.8);
+      z-index: 2000;
+      overflow-y: auto;
+      padding: 20px;
+    }
+
+    .modal-content {
+      background: var(--dark);
+      max-width: 900px;
+      margin: 50px auto;
+      border-radius: 12px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: rgba(0, 0, 0, 0.5);
+      color: var(--white);
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      z-index: 10;
+      transition: var(--transition);
+    }
+
+    .modal-close:hover {
+      background: var(--primary);
+    }
+
+    .modal-header {
+      position: relative;
+      height: 300px;
+      overflow: hidden;
+    }
+
+    .modal-header img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .modal-body {
+      padding: 40px;
+    }
+
+    .modal-category {
+      display: inline-block;
+      background: var(--primary);
+      color: var(--white);
+      padding: 5px 12px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      margin-bottom: 15px;
+    }
+
+    .modal-title {
+      font-size: 2rem;
+      margin-bottom: 10px;
+      color: var(--white);
+      font-weight: 700;
+    }
+
+    .modal-client {
+      color: var(--accent);
+      font-size: 1.1rem;
+      margin-bottom: 30px;
+      font-weight: 500;
+    }
+
+    .modal-stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      margin-bottom: 40px;
+      padding: 25px;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 12px;
+    }
+
+    .modal-stat {
+      text-align: center;
+    }
+
+    .modal-stat-number {
+      display: block;
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--accent);
+      margin-bottom: 5px;
+    }
+
+    .modal-stat-label {
+      font-size: 0.9rem;
+      color: rgba(255, 255, 255, 0.7);
+    }
+
+    .modal-section {
+      margin-bottom: 40px;
+    }
+
+    .modal-section h3 {
+      font-size: 1.4rem;
+      margin-bottom: 15px;
+      color: var(--white);
+      font-weight: 600;
+      border-bottom: 2px solid var(--primary);
+      padding-bottom: 8px;
+    }
+
+    .modal-section p {
+      color: rgba(255, 255, 255, 0.8);
+      line-height: 1.8;
+      margin-bottom: 15px;
+    }
+
+    .modal-section ul {
+      color: rgba(255, 255, 255, 0.8);
+      padding-left: 20px;
+      margin-bottom: 15px;
+    }
+
+    .modal-section li {
+      margin-bottom: 8px;
+      line-height: 1.6;
+    }
+
+    .modal-actions {
+      display: flex;
+      gap: 15px;
+      margin-top: 40px;
+    }
+
+    .modal-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--primary);
+      color: var(--white);
+      padding: 12px 25px;
+      font-size: 1rem;
+      font-weight: 500;
+      text-decoration: none;
+      border-radius: 8px;
+      transition: var(--transition);
+    }
+
+    .modal-btn.outline {
+      background: transparent;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .modal-btn:hover {
+      background: var(--accent);
+      transform: translateY(-2px);
+    }
+
+    @media (max-width: 1024px) {
+      .modal-stats {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .case-studies-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .case-study-stats {
+        flex-direction: column;
+        gap: 15px;
+      }
+
+      .case-study-actions {
+        flex-direction: column;
+      }
+
+      .modal-stats {
+        grid-template-columns: 1fr;
+      }
+
+      .modal-actions {
+        flex-direction: column;
+      }
+
+      .modal-title {
+        font-size: 1.6rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="bg-image"></div>
+  <div class="overlay"></div>
+
+  <header>
+    <div class="logo">
+      <a href="index.html">
+        <img src="images/Eai new.png" alt="Emmanuel Agida International">
+      </a>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="consultancy.html">Consultancy</a></li>
+        <li><a href="programs.html">Programs</a></li>
+        <li><a href="consortium.html">Consortium</a></li>
+        <li><a href="case.html" class="active">Case Study</a></li>
+        <li><a href="pub.html">Events</a></li>
+        <li><a href="media.html">Media</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="menu-toggle">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </header>
+
+  <div class="page-header">
+    <div class="container">
+      <h1 class="page-title">Case Studies</h1>
+      <p style="font-size: 1.2rem; color: var(--accent);">Impact Stories & Measurable Results</p>
+    </div>
+  </div>
+
+  <section class="case-studies-section">
+    <div class="container">
+
+      <div class="content-block">
+        <h2>Our Impact</h2>
+        <p>Explore how Emmanuel Agida International has transformed organizations and individuals through strategic
+          leadership development programs. Each case study represents real-world challenges and measurable results
+          achieved through our proven methodologies.</p>
+      </div>
+
+      <div class="case-studies-grid">
+        <!-- Case Study 1 -->
+        <div class="case-study-card" data-case="1">
+          <div class="case-study-image">
+            <img src="images/img1.jpeg" alt="Financial Services Transformation">
+            <div class="case-study-category">FINANCIAL SERVICES</div>
+          </div>
+          <div class="case-study-content">
+            <h3>Leadership Transformation in Banking Sector</h3>
+            <span class="case-study-client">Leading Nigerian Bank</span>
+            <p class="case-study-excerpt">How we helped a major financial institution develop next-generation leaders to
+              drive digital transformation and market expansion.</p>
+
+            <div class="case-study-stats">
+              <div class="stat-item">
+                <span class="stat-number">45%</span>
+                <span class="stat-label">Revenue Growth</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-number">67%</span>
+                <span class="stat-label">Employee Engagement</span>
+              </div>
+            </div>
+
+            <div class="case-study-meta">
+              <span><i class="far fa-clock"></i> 6 Months</span>
+              <span><i class="fas fa-users"></i> 25 Executives</span>
+            </div>
+
+            <div class="case-study-actions">
+              <a href="#" class="case-study-btn primary view-case-btn">
+                <i class="fas fa-eye"></i>
+                View Case Study
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Case Study 2 -->
+        <div class="case-study-card" data-case="2">
+          <div class="case-study-image">
+            <img src="images/img2.jpeg" alt="Manufacturing Excellence">
+            <div class="case-study-category">MANUFACTURING</div>
+          </div>
+          <div class="case-study-content">
+            <h3>Operational Excellence Through Leadership</h3>
+            <span class="case-study-client">Multinational Manufacturing Company</span>
+            <p class="case-study-excerpt">Transforming operational leadership to drive efficiency, quality improvement,
+              and sustainable growth across African operations.</p>
+
+            <div class="case-study-stats">
+              <div class="stat-item">
+                <span class="stat-number">32%</span>
+                <span class="stat-label">Efficiency Gain</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-number">58%</span>
+                <span class="stat-label">Quality Improvement</span>
+              </div>
+            </div>
+
+            <div class="case-study-meta">
+              <span><i class="far fa-clock"></i> 9 Months</span>
+              <span><i class="fas fa-users"></i> 40 Managers</span>
+            </div>
+
+            <div class="case-study-actions">
+              <a href="#" class="case-study-btn primary view-case-btn">
+                <i class="fas fa-eye"></i>
+                View Case Study
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Case Study 3 -->
+        <div class="case-study-card" data-case="3">
+          <div class="case-study-image">
+            <img src="images/img3.jpeg" alt="Public Sector Reform">
+            <div class="case-study-category">PUBLIC SECTOR</div>
+          </div>
+          <div class="case-study-content">
+            <h3>Public Sector Leadership Development</h3>
+            <span class="case-study-client">State Government Ministry</span>
+            <p class="case-study-excerpt">Building leadership capacity in public service to drive policy implementation,
+              service delivery, and organizational effectiveness.</p>
+
+            <div class="case-study-stats">
+              <div class="stat-item">
+                <span class="stat-number">78%</span>
+                <span class="stat-label">Program Completion</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-number">41%</span>
+                <span class="stat-label">Service Improvement</span>
+              </div>
+            </div>
+
+            <div class="case-study-meta">
+              <span><i class="far fa-clock"></i> 12 Months</span>
+              <span><i class="fas fa-users"></i> 150 Officials</span>
+            </div>
+
+            <div class="case-study-actions">
+              <a href="#" class="case-study-btn primary view-case-btn">
+                <i class="fas fa-eye"></i>
+                View Case Study
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Case Study Modal -->
+  <div class="case-study-modal" id="caseStudyModal">
+    <div class="modal-content">
+      <div class="modal-close" id="modalClose">
+        <i class="fas fa-times"></i>
+      </div>
+      <div class="modal-header">
+        <img src="images/img4.jpeg" alt="Case Study Detail">
+      </div>
+      <div class="modal-body">
+        <span class="modal-category" id="modalCategory">FINANCIAL SERVICES</span>
+        <h2 class="modal-title" id="modalTitle">Leadership Transformation in Banking Sector</h2>
+        <p class="modal-client" id="modalClient">Leading Nigerian Bank</p>
+
+        <div class="modal-stats">
+          <div class="modal-stat">
+            <span class="modal-stat-number">45%</span>
+            <span class="modal-stat-label">Revenue Growth</span>
+          </div>
+          <div class="modal-stat">
+            <span class="modal-stat-number">67%</span>
+            <span class="modal-stat-label">Employee Engagement</span>
+          </div>
+          <div class="modal-stat">
+            <span class="modal-stat-number">32%</span>
+            <span class="modal-stat-label">Leadership Effectiveness</span>
+          </div>
+          <div class="modal-stat">
+            <span class="modal-stat-number">89%</span>
+            <span class="modal-stat-label">Program Satisfaction</span>
+          </div>
+        </div>
+
+        <div class="modal-section">
+          <h3>Challenge</h3>
+          <p>The client, a leading Nigerian bank, faced significant challenges in adapting to digital transformation
+            while maintaining market leadership.</p>
+        </div>
+
+        <div class="modal-section">
+          <h3>Solution</h3>
+          <p>We designed and implemented a comprehensive leadership transformation program focused on Digital Leadership
+            Academy and Change Management Framework.</p>
+        </div>
+
+        <div class="modal-section">
+          <h3>Results</h3>
+          <p>The program delivered significant measurable outcomes within 6 months including 45% revenue growth in
+            digital banking services.</p>
+        </div>
+
+        <div class="modal-actions">
+          <a href="https://wa.me/2348128048170" class="modal-btn" target="_blank">
+            <i class="fab fa-whatsapp"></i>
+            Contact for Details
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-section">
+          <h3>Contact Us</h3>
+          <p>Email: info@eainternational.net</p>
+          <p>Phone: +234 812 804 8170</p>
+        </div>
+        <div class="footer-section">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="consultancy.html">Consultancy</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Follow Us</h3>
+          <div class="social-links">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 Emmanuel Agida International. All Rights Reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+  <script>
+    // Case Study Modal Functionality (Simplified)
+    const modal = document.getElementById('caseStudyModal');
+    const modalClose = document.getElementById('modalClose');
+    const viewCaseBtns = document.querySelectorAll('.view-case-btn');
+
+    viewCaseBtns.forEach(btn => {
+      btn.addEventListener('click', function (e) {
+        e.preventDefault();
+        // In a full implementation, you'd populate data based on ID here
+        modal.style.display = 'block';
+        document.body.style.overflow = 'hidden';
+      });
+    });
+
+    modalClose.addEventListener('click', function () {
+      modal.style.display = 'none';
+      document.body.style.overflow = 'auto';
+    });
+
+    window.addEventListener('click', function (e) {
+      if (e.target === modal) {
+        modal.style.display = 'none';
+        document.body.style.overflow = 'auto';
+      }
+    });
+  </script>
+</body>
+
+</html>

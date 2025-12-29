@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <title>Events - Emmanuel Agida International</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+    :root {
+      --primary: #8B4513;
+      --primary-dark: #703810;
+      --primary-light: #A0522D;
+      --accent: #D2691E;
+      --dark: #0f0f0f;
+      --dark-card: #141414;
+      --text: #ffffff;
+      --text-muted: #a0a0a0;
+      --white: #ffffff;
+      --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Inter', sans-serif;
+    }
+
+    body {
+      background-color: var(--dark);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* Navbar */
+    header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      padding: 20px 50px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 1000;
+      background: rgba(15, 15, 15, 0.8);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      transition: var(--transition);
+    }
+
+    .logo img {
+      height: 45px;
+    }
+
+    nav ul {
+      display: flex;
+      gap: 30px;
+      list-style: none;
+    }
+
+    nav a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.95rem;
+      font-weight: 500;
+      transition: var(--transition);
+      position: relative;
+    }
+
+    nav a:hover,
+    nav a.active {
+      color: var(--white);
+    }
+
+    nav a::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--accent);
+      transition: var(--transition);
+    }
+
+    nav a:hover::after,
+    nav a.active::after {
+      width: 100%;
+    }
+
+    /* Hero Section */
+    .hero {
+      height: 60vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      position: relative;
+      background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.8)), url('images/crowd 1.jpeg');
+      background-size: cover;
+      background-position: center;
+      margin-top: 80px;
+    }
+
+    .hero-content h1 {
+      font-size: 4rem;
+      font-weight: 700;
+      margin-bottom: 20px;
+      background: linear-gradient(135deg, #fff 0%, #dcdcdc 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero-content p {
+      font-size: 1.25rem;
+      color: var(--text-muted);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    /* Events Section */
+    .section {
+      padding: 100px 50px;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .section-header {
+      margin-bottom: 60px;
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      padding-bottom: 20px;
+    }
+
+    .section-title {
+      font-size: 2.5rem;
+      font-weight: 600;
+      color: var(--white);
+    }
+
+    .event-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+      gap: 40px;
+    }
+
+    .event-card {
+      background: var(--dark-card);
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      transition: var(--transition);
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .event-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+      border-color: rgba(255, 255, 255, 0.15);
+    }
+
+    .event-image {
+      height: 240px;
+      width: 100%;
+      object-fit: cover;
+      position: relative;
+    }
+
+    .date-badge {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: rgba(0, 0, 0, 0.6);
+      backdrop-filter: blur(10px);
+      padding: 10px 15px;
+      border-radius: 8px;
+      text-align: center;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .date-badge .day {
+      display: block;
+      font-size: 1.5rem;
+      font-weight: 700;
+      line-height: 1;
+      color: var(--white);
+    }
+
+    .date-badge .month {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    .event-details {
+      padding: 30px;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .event-category {
+      color: var(--accent);
+      font-size: 0.85rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+      letter-spacing: 1px;
+    }
+
+    .event-title {
+      font-size: 1.5rem;
+      color: var(--white);
+      margin-bottom: 15px;
+      line-height: 1.3;
+    }
+
+    .event-info {
+      display: flex;
+      gap: 20px;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      margin-bottom: 20px;
+    }
+
+    .event-info i {
+      color: var(--primary-light);
+      margin-right: 5px;
+    }
+
+    .event-btn {
+      margin-top: auto;
+      text-decoration: none;
+      background: transparent;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      color: var(--white);
+      padding: 12px;
+      text-align: center;
+      border-radius: 8px;
+      transition: var(--transition);
+      font-weight: 500;
+    }
+
+    .event-btn:hover {
+      background: var(--primary);
+      border-color: var(--primary);
+    }
+
+    /* Past Events Gallery */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-auto-rows: 250px;
+      /* Reduced from 300px to better fit standard images */
+      gap: 20px;
+    }
+
+    .gallery-item {
+      position: relative;
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    /* Bento Grid Layout */
+    .gallery-item:nth-child(1) {
+      grid-column: span 2;
+      grid-row: span 2;
+    }
+
+    .gallery-item:nth-child(2) {
+      grid-column: span 1;
+    }
+
+    .gallery-item:nth-child(3) {
+      grid-column: span 1;
+    }
+
+    .gallery-item:nth-child(6) {
+      grid-column: span 2;
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: var(--transition);
+    }
+
+    .gallery-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent);
+      opacity: 0;
+      transition: var(--transition);
+      display: flex;
+      align-items: flex-end;
+      padding: 30px;
+    }
+
+    .gallery-item:hover .gallery-overlay {
+      opacity: 1;
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.05);
+    }
+
+    /* Footer */
+    footer {
+      background: var(--dark-card);
+      padding: 80px 50px 30px;
+      margin-top: 100px;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 50px;
+    }
+
+    .footer-col h3 {
+      color: var(--white);
+      margin-bottom: 25px;
+    }
+
+    .footer-links li {
+      list-style: none;
+      margin-bottom: 12px;
+    }
+
+    .footer-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      transition: var(--transition);
+    }
+
+    .footer-links a:hover {
+      color: var(--accent);
+    }
+
+    .copyright {
+      text-align: center;
+      margin-top: 80px;
+      padding-top: 30px;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+
+    /* Mobile */
+    @media (max-width: 768px) {
+      header {
+        padding: 20px;
+      }
+
+      nav {
+        display: none;
+      }
+
+      /* Add toggle logic later if needed */
+      .hero-content h1 {
+        font-size: 2.5rem;
+      }
+
+      .gallery-grid {
+        grid-template-columns: 1fr;
+        grid-auto-rows: 250px;
+      }
+
+      .gallery-item {
+        grid-column: span 1 !important;
+        grid-row: span 1 !important;
+      }
+
+      .menu-toggle {
+        display: block;
+        color: white;
+        font-size: 1.5rem;
+        cursor: pointer;
+      }
+    }
+
+    .menu-toggle {
+      display: none;
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="logo">
+      <a href="index.html"><img src="images/Eai new.png" alt="EAI"></a>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="consultancy.html">Consultancy</a></li>
+        <li><a href="programs.html">Programs</a></li>
+        <li><a href="consortium.html">Consortium</a></li>
+        <li><a href="case.html">Case Study</a></li>
+        <li><a href="pub.html" class="active">Events</a></li>
+        <li><a href="media.html">Media</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="menu-toggle"><i class="fas fa-bars"></i></div>
+  </header>
+
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Events & Gatherings</h1>
+      <p>Join us as we shape the future of leadership through transformative summits, conferences, and workshops.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-header">
+      <h2 class="section-title">Upcoming Events</h2>
+    </div>
+
+    <div class="event-grid">
+      <!-- Event 1 -->
+      <div class="event-card">
+        <div class="event-image">
+          <img src="images/min.jpeg" alt="Leadership Summit">
+          <div class="date-badge">
+            <span class="day">12</span>
+            <span class="month">Aug</span>
+          </div>
+        </div>
+        <div class="event-details">
+          <span class="event-category">Summit</span>
+          <h3 class="event-title">The Achievers Summit 2025</h3>
+          <div class="event-info">
+            <span><i class="fas fa-map-marker-alt"></i> Abuja, Nigeria</span>
+            <span><i class="far fa-clock"></i> 09:00 AM</span>
+          </div>
+          <p style="color: var(--text-muted); margin-bottom: 20px; font-size: 0.95rem;">
+            The annual gathering of emerging leaders across Africa. Commemorating International Youth Day with impactful
+            sessions.
+          </p>
+          <a href="#" class="event-btn">Register Now</a>
+        </div>
+      </div>
+
+      <!-- Event 2 -->
+      <div class="event-card">
+        <div class="event-image">
+          <img src="images/img1.jpeg" alt="Masterclass">
+          <div class="date-badge">
+            <span class="day">25</span>
+            <span class="month">Sep</span>
+          </div>
+        </div>
+        <div class="event-details">
+          <span class="event-category">Masterclass</span>
+          <h3 class="event-title">Youth Leadership Development</h3>
+          <div class="event-info">
+            <span><i class="fas fa-video"></i> Virtual</span>
+            <span><i class="far fa-clock"></i> 02:00 PM</span>
+          </div>
+          <p style="color: var(--text-muted); margin-bottom: 20px; font-size: 0.95rem;">
+            A comprehensive masterclass designed to equip young professionals with essential leadership competencies.
+          </p>
+          <a href="#" class="event-btn">Join Waitlist</a>
+        </div>
+      </div>
+
+      <!-- Event 3 -->
+      <div class="event-card">
+        <div class="event-image">
+          <img src="images/IMG_6429.jpeg" alt="Policy Dialogue">
+          <div class="date-badge">
+            <span class="day">10</span>
+            <span class="month">Oct</span>
+          </div>
+        </div>
+        <div class="event-details">
+          <span class="event-category">Dialogue</span>
+          <h3 class="event-title">Policy & Civic Engagement Series</h3>
+          <div class="event-info">
+            <span><i class="fas fa-map-marker-alt"></i> Lagos, Nigeria</span>
+            <span><i class="far fa-clock"></i> 10:00 AM</span>
+          </div>
+          <p style="color: var(--text-muted); margin-bottom: 20px; font-size: 0.95rem;">
+            Engaging stakeholders in critical discussions on policy formulation and civic responsibility.
+          </p>
+          <a href="#" class="event-btn">View Details</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-header">
+      <h2 class="section-title">Past Gallery</h2>
+      <a href="#" style="color: var(--accent); text-decoration: none;">View Full Archive <i
+          class="fas fa-arrow-right"></i></a>
+    </div>
+
+    <div class="gallery-grid">
+      <div class="gallery-item">
+        <img src="images/crowd 1.jpeg" alt="Event Crowd">
+        <div class="gallery-overlay">
+          <div>
+            <h4 style="color: white; margin-bottom: 5px;">Annual Conference</h4>
+            <span style="color: var(--accent); font-size: 0.8rem;">2024 Edition</span>
+          </div>
+        </div>
+      </div>
+      <div class="gallery-item">
+        <img src="images/IMG_8065.jpeg" alt="Speaker">
+      </div>
+      <div class="gallery-item">
+        <img src="images/min.jpeg" alt="Panel Session">
+      </div>
+      <div class="gallery-item">
+        <img src="images/img2.jpeg" alt="Workshop">
+      </div>
+      <div class="gallery-item">
+        <img src="images/img3.jpeg" alt="Networking">
+      </div>
+      <div class="gallery-item">
+        <img src="images/img4.jpeg" alt="Award Ceremony">
+        <div class="gallery-overlay">
+          <div>
+            <h4 style="color: white; margin-bottom: 5px;">100Under40 Awards</h4>
+            <span style="color: var(--accent); font-size: 0.8rem;">Recognition Night</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-content">
+      <div class="footer-col">
+        <h3>Contact Us</h3>
+        <p style="color: var(--text-muted);">Email: info@eainternational.net</p>
+        <p style="color: var(--text-muted);">Phone: +234 812 804 8170</p>
+      </div>
+      <div class="footer-col">
+        <h3>Quick Links</h3>
+        <ul class="footer-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="case.html">Case Studies</a></li>
+          <li><a href="media.html">Media</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h3>Follow Us</h3>
+        <div style="display: flex; gap: 15px;">
+          <a href="#" style="color: white;"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" style="color: white;"><i class="fab fa-twitter"></i></a>
+          <a href="#" style="color: white;"><i class="fab fa-instagram"></i></a>
+          <a href="#" style="color: white;"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+      </div>
+    </div>
+    <div class="copyright">
+      <p>&copy; 2025 Emmanuel Agida International. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
