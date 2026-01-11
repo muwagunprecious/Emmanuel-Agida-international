@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+  <title>Blue Seal Energy Plant Launch - Case Study | EAI</title>
+  <style>
+    /* Case Study Page Specific Styles */
+    .case-study-hero {
+      background: linear-gradient(135deg, rgba(139, 69, 19, 0.9), rgba(0, 0, 0, 0.7)),
+                  url('images/img1.jpeg');
+      background-size: cover;
+      background-position: center;
+      padding: 120px 0 80px;
+      text-align: center;
+      position: relative;
+    }
+
+    .case-study-hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.3);
+    }
+
+    .case-study-hero .container {
+      position: relative;
+      z-index: 2;
+    }
+
+    .case-study-breadcrumb {
+      color: var(--accent);
+      margin-bottom: 20px;
+      font-weight: 500;
+    }
+
+    .case-study-breadcrumb a {
+      color: var(--accent);
+      text-decoration: none;
+      transition: var(--transition);
+    }
+
+    .case-study-breadcrumb a:hover {
+      color: var(--white);
+    }
+
+    .case-study-hero h1 {
+      font-size: 3rem;
+      margin-bottom: 20px;
+      font-weight: 700;
+    }
+
+    .case-study-hero .meta {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      margin-bottom: 30px;
+      flex-wrap: wrap;
+    }
+
+    .case-study-hero .meta span {
+      color: rgba(255, 255, 255, 0.9);
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .case-study-tags-hero {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    .case-tag-hero {
+      background: rgba(139, 69, 19, 0.8);
+      color: var(--white);
+      padding: 8px 16px;
+      border-radius: 25px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      border: 1px solid rgba(139, 69, 19, 1);
+    }
+
+    .case-study-content {
+      padding: 80px 0;
+      background: var(--dark-light);
+    }
+
+    .case-content-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 50px;
+      margin-bottom: 50px;
+    }
+
+    .case-main-content {
+      background: var(--dark);
+      padding: 40px;
+      border-radius: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .case-sidebar {
+      background: var(--dark);
+      padding: 30px;
+      border-radius: 12px;
+      height: fit-content;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .case-section {
+      margin-bottom: 40px;
+    }
+
+    .case-section h2 {
+      font-size: 1.8rem;
+      margin-bottom: 20px;
+      color: var(--white);
+      font-weight: 600;
+      border-bottom: 2px solid var(--primary);
+      padding-bottom: 10px;
+    }
+
+    .case-section h3 {
+      font-size: 1.4rem;
+      margin-bottom: 15px;
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    .case-section p {
+      color: rgba(255, 255, 255, 0.8);
+      line-height: 1.8;
+      margin-bottom: 20px;
+      font-size: 1.05rem;
+    }
+
+    .case-section ul {
+      color: rgba(255, 255, 255, 0.8);
+      padding-left: 25px;
+      margin-bottom: 20px;
+    }
+
+    .case-section li {
+      margin-bottom: 10px;
+      line-height: 1.7;
+      font-size: 1.05rem;
+    }
+
+    .case-info-item {
+      margin-bottom: 25px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .case-info-label {
+      color: var(--accent);
+      font-weight: 600;
+      margin-bottom: 8px;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .case-info-value {
+      color: rgba(255, 255, 255, 0.9);
+      font-weight: 500;
+      line-height: 1.6;
+    }
+
+    .case-stats {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      margin: 30px 0;
+      padding: 25px;
+      background: rgba(139, 69, 19, 0.1);
+      border-radius: 12px;
+      border: 1px solid rgba(139, 69, 19, 0.2);
+    }
+
+    .case-stat {
+      text-align: center;
+    }
+
+    .case-stat-number {
+      display: block;
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: var(--accent);
+      margin-bottom: 8px;
+    }
+
+    .case-stat-label {
+      color: rgba(255, 255, 255, 0.7);
+      font-size: 0.9rem;
+      font-weight: 500;
+    }
+
+    .case-cta {
+      background: var(--primary);
+      padding: 40px;
+      border-radius: 12px;
+      text-align: center;
+      margin-top: 40px;
+    }
+
+    .case-cta h3 {
+      color: var(--white);
+      margin-bottom: 15px;
+      font-size: 1.5rem;
+    }
+
+    .case-cta p {
+      color: rgba(255, 255, 255, 0.9);
+      margin-bottom: 25px;
+    }
+
+    .case-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--white);
+      color: var(--primary);
+      padding: 12px 25px;
+      font-size: 1rem;
+      font-weight: 600;
+      text-decoration: none;
+      border-radius: 8px;
+      transition: var(--transition);
+    }
+
+    .case-btn:hover {
+      background: var(--accent);
+      color: var(--white);
+      transform: translateY(-2px);
+    }
+
+    @media (max-width: 1024px) {
+      .case-content-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .case-study-hero h1 {
+        font-size: 2.2rem;
+      }
+
+      .case-study-hero .meta {
+        flex-direction: column;
+        gap: 15px;
+      }
+
+      .case-main-content,
+      .case-sidebar {
+        padding: 25px;
+      }
+
+      .case-stats {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="bg-image"></div>
+  <div class="overlay"></div>
+
+  <header>
+    <div class="logo">
+      <a href="index.html">
+        <img src="images/Eai new.png" alt="Emmanuel Agida International">
+      </a>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="consultancy.html">Consultancy</a></li>
+        <li><a href="programs.html">Programs</a></li>
+        <li><a href="consortium.html">Consortium</a></li>
+        <li><a href="case.html">Case Study</a></li>
+        <li><a href="philanthropy.html">Philanthropy</a></li>
+        <li><a href="pub.html">Events</a></li>
+        <li><a href="media.html">Media</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="menu-toggle">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </header>
+
+  <section class="case-study-hero">
+    <div class="container">
+      <div class="case-study-breadcrumb">
+        <a href="case.html">Case Studies</a> / Blue Seal Energy Plant Launch
+      </div>
+      
+      <h1>Blue Seal Energy Chemical Plant Launch</h1>
+      
+      <div class="meta">
+        <span><i class="fas fa-building"></i> Blue Seal Energy Group</span>
+        <span><i class="fas fa-industry"></i> Energy & Industrial Manufacturing</span>
+        <span><i class="far fa-calendar-alt"></i> February 2024</span>
+      </div>
+      
+      <div class="case-study-tags-hero">
+        <span class="case-tag-hero">Strategic Advisory</span>
+        <span class="case-tag-hero">Market Activation</span>
+        <span class="case-tag-hero">Launch Management</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="case-study-content">
+    <div class="container">
+      <div class="case-content-grid">
+        <div class="case-main-content">
+          <div class="case-section">
+            <h2>Project Overview</h2>
+            <p>Blue Seal Energy Group, a U.S.–Nigerian energy solutions company, has made a significant investment in Nigeria's industrial future with the establishment of the Blue Seal Chemical Production Plant—the country's first ultra-modern chemical manufacturing facility of its scale.</p>
+            
+            <p>Valued at over <strong>$12.5 million</strong> and designed with an annual production capacity of <strong>10 million tons</strong>, the facility represents a major step toward localizing chemical production, reducing import dependence, and strengthening Nigeria's industrial manufacturing value chain.</p>
+            
+            <p>EA International served as the strategic consultancy and execution partner for the official launch of the plant, delivering market positioning, stakeholder engagement, and public-facing activation aligned with investor and industry expectations.</p>
+          </div>
+
+          <div class="case-stats">
+            <div class="case-stat">
+              <span class="case-stat-number">$12.5M</span>
+              <span class="case-stat-label">Investment Value</span>
+            </div>
+            <div class="case-stat">
+              <span class="case-stat-number">10M</span>
+              <span class="case-stat-label">Annual Production Capacity (tons)</span>
+            </div>
+          </div>
+
+          <div class="case-section">
+            <h2>Investment & Market Significance</h2>
+            <p>The Blue Seal Chemical Production Plant addresses a critical gap in Nigeria's energy and industrial ecosystem by providing locally manufactured, high-quality industrial and specialty chemicals. The facility is positioned to serve both domestic demand and regional markets, supporting:</p>
+            
+            <ul>
+              <li>Import substitution and foreign exchange conservation</li>
+              <li>Supply chain resilience within the energy sector</li>
+              <li>Job creation and industrial capacity development</li>
+            </ul>
+
+            <p>The plant's product portfolio includes demulsifiers, scale and corrosion inhibitors, sodium hypochlorite, H₂S scavengers, biocides, ethanol, methanol, water clarifiers, paraffin inhibitors, acids, coolants, and degreasers, serving multiple segments across oil & gas, manufacturing, and industrial processing.</p>
+          </div>
+
+          <div class="case-section">
+            <h2>Strategic Advisory & Launch Execution</h2>
+            <p>EA International worked closely with Blue Seal Energy Group to translate a major capital investment into a compelling public and investor narrative. Our scope covered:</p>
+            
+            <ul>
+              <li>Strategic positioning and launch advisory</li>
+              <li>Market activation and stakeholder engagement</li>
+              <li>Public relations and media coordination</li>
+              <li>Product exhibition strategy</li>
+              <li>End-to-end launch management</li>
+            </ul>
+
+            <p>The objective was to ensure the facility's unveiling reflected its scale, technical capacity, and economic relevance.</p>
+          </div>
+
+          <div class="case-section">
+            <h2>The Launch</h2>
+            <p>The official plant launch, held on <strong>February 14</strong> at Blue Seal Energy Group's Ibeju-Lekki facility, convened senior stakeholders from across the energy sector, private industry, and public institutions.</p>
+            
+            <h3>The event showcased:</h3>
+            <ul>
+              <li>The plant's production capacity and technological standards</li>
+              <li>The breadth of its chemical manufacturing capabilities</li>
+              <li>Blue Seal Energy Group's long-term commitment to Nigeria's industrial growth</li>
+            </ul>
+
+            <p>EA International managed the launch to deliver clarity, credibility, and visibility, key factors for investor confidence and market acceptance.</p>
+          </div>
+
+          <div class="case-section">
+            <h2>Outcome & Impact</h2>
+            <p>The launch positioned Blue Seal Energy Group as:</p>
+            
+            <ul>
+              <li>A credible large-scale manufacturer within Nigeria's energy ecosystem</li>
+              <li>A contributor to national industrialization and economic diversification</li>
+              <li>A company aligned with global standards and local value creation</li>
+            </ul>
+
+            <p>The engagement strengthened brand visibility, reinforced stakeholder confidence, and established a strong foundation for future growth, partnerships, and investment engagement.</p>
+          </div>
+        </div>
+
+        <div class="case-sidebar">
+          <div class="case-info-item">
+            <div class="case-info-label">Client</div>
+            <div class="case-info-value">Blue Seal Energy Group (U.S.–Nigeria)</div>
+          </div>
+
+          <div class="case-info-item">
+            <div class="case-info-label">Industry</div>
+            <div class="case-info-value">Energy & Industrial Manufacturing</div>
+          </div>
+
+          <div class="case-info-item">
+            <div class="case-info-label">Engagement Type</div>
+            <div class="case-info-value">Strategic Consultancy, Market Activation & Launch Management</div>
+          </div>
+
+          <div class="case-info-item">
+            <div class="case-info-label">Launch Date</div>
+            <div class="case-info-value">February 14, 2024</div>
+          </div>
+
+          <div class="case-info-item">
+            <div class="case-info-label">Location</div>
+            <div class="case-info-value">Ibeju-Lekki, Lagos, Nigeria</div>
+          </div>
+
+          <div class="case-info-item">
+            <div class="case-info-label">Facility Investment</div>
+            <div class="case-info-value">$12.5+ Million</div>
+          </div>
+
+          <div class="case-info-item">
+            <div class="case-info-label">Production Capacity</div>
+            <div class="case-info-value">10 Million Tons Annually</div>
+          </div>
+
+          <div class="case-cta">
+            <h3>Interested in Similar Results?</h3>
+            <p>Learn how we can help position and launch your major projects.</p>
+            <a href="contact.html" class="case-btn">
+              <i class="fas fa-arrow-right"></i>
+              Get In Touch
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="case-section">
+        <h2>EA International's Value Proposition</h2>
+        <p>Through strategic consultancy and execution, EA International supports organizations in converting capital projects into market-ready, investor-attractive brands, bridging infrastructure, policy relevance, and public perception to drive sustainable growth.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-section">
+          <h3>Contact Us</h3>
+          <p>Email: info@eainternational.net</p>
+          <p>Phone: +234 812 804 8170</p>
+        </div>
+        <div class="footer-section">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="consultancy.html">Consultancy</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Follow Us</h3>
+          <div class="social-links">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 Emmanuel Agida International. All Rights Reserved.</p>
+        <p style="margin-top: 10px; font-size: 0.9rem;">
+          <a href="privacy-policy.html" style="color: var(--accent); text-decoration: underline;">Privacy Policy</a>
+          <span style="color: var(--text-light); margin: 0 8px;">|</span>
+          <a href="terms-and-conditions.html" style="color: var(--accent); text-decoration: underline;">Terms & Conditions</a>
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+  <title>Take Over Leadership Summit 2025 - Case Study | EAI</title>
+  <style>
+    /* Case Study Page Specific Styles */
+    .case-study-hero {
+      background: linear-gradient(135deg, rgba(139, 69, 19, 0.9), rgba(0, 0, 0, 0.7)),
+                  url('images/img3.jpeg');
+      background-size: cover;
+      background-position: center;
+      padding: 120px 0 80px;
+      text-align: center;
+      position: relative;
+    }
+
+    .case-study-hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.3);
+    }
+
+    .case-study-hero .container {
+      position: relative;
+      z-index: 2;
+    }
+
+    .case-study-breadcrumb {
+      color: var(--accent);
+      margin-bottom: 20px;
+      font-weight: 500;
+    }
+
+    .case-study-breadcrumb a {
+      color: var(--accent);
+      text-decoration: none;
+      transition: var(--transition);
+    }
+
+    .case-study-breadcrumb a:hover {
+      color: var(--white);
+    }
+
+    .case-study-hero h1 {
+      font-size: 3rem;
+      margin-bottom: 20px;
+      font-weight: 700;
+    }
+
+    .case-study-hero .meta {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      margin-bottom: 30px;
+      flex-wrap: wrap;
+    }
+
+    .case-study-hero .meta span {
+      color: rgba(255, 255, 255, 0.9);
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .case-study-tags-hero {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    .case-tag-hero {
+      background: rgba(139, 69, 19, 0.8);
+      color: var(--white);
+      padding: 8px 16px;
+      border-radius: 25px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      border: 1px solid rgba(139, 69, 19, 1);
+    }
+
+    .case-study-content {
+      padding: 80px 0;
+      background: var(--dark-light);
+    }
+
+    .case-content-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 50px;
+      margin-bottom: 50px;
+    }
+
+    .case-main-content {
+      background: var(--dark);
+      padding: 40px;
+      border-radius: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .case-sidebar {
+      background: var(--dark);
+      padding: 30px;
+      border-radius: 12px;
+      height: fit-content;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .case-section {
+      margin-bottom: 40px;
+    }
+
+    .case-section h2 {
+      font-size: 1.8rem;
+      margin-bottom: 20px;
+      color: var(--white);
+      font-weight: 600;
+      border-bottom: 2px solid var(--primary);
+      padding-bottom: 10px;
+    }
+
+    .case-section h3 {
+      font-size: 1.4rem;
+      margin-bottom: 15px;
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    .case-section p {
+      color: rgba(255, 255, 255, 0.8);
+      line-height: 1.8;
+      margin-bottom: 20px;
+      font-size: 1.05rem;
+    }
+
+    .case-section ul {
+      color: rgba(255, 255, 255, 0.8);
+      padding-left: 25px;
+      margin-bottom: 20px;
+    }
+
+    .case-section li {
+      margin-bottom: 10px;
+      line-height: 1.7;
+      font-size: 1.05rem;
+    }
+
+    .case-info-item {
+      margin-bottom: 25px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .case-info-label {
+      color: var(--accent);
+      font-weight: 600;
+      margin-bottom: 8px;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .case-info-value {
+      color: rgba(255, 255, 255, 0.9);
+      font-weight: 500;
+      line-height: 1.6;
+    }
+
+    .speakers-list {
+      background: rgba(139, 69, 19, 0.1);
+      padding: 25px;
+      border-radius: 12px;
+      border: 1px solid rgba(139, 69, 19, 0.2);
+      margin: 25px 0;
+    }
+
+    .speaker-item {
+      margin-bottom: 20px;
+      padding-bottom: 15px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .speaker-item:last-child {
+      margin-bottom: 0;
+      padding-bottom: 0;
+      border-bottom: none;
+    }
+
+    .speaker-name {
+      color: var(--accent);
+      font-weight: 600;
+      margin-bottom: 5px;
+      font-size: 1rem;
+    }
+
+    .speaker-title {
+      color: rgba(255, 255, 255, 0.8);
+      font-size: 0.9rem;
+      line-height: 1.5;
+    }
+
+    .case-cta {
+      background: var(--primary);
+      padding: 40px;
+      border-radius: 12px;
+      text-align: center;
+      margin-top: 40px;
+    }
+
+    .case-cta h3 {
+      color: var(--white);
+      margin-bottom: 15px;
+      font-size: 1.5rem;
+    }
+
+    .case-cta p {
+      color: rgba(255, 255, 255, 0.9);
+      margin-bottom: 25px;
+    }
+
+    .case-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--white);
+      color: var(--primary);
+      padding: 12px 25px;
+      font-size: 1rem;
+      font-weight: 600;
+      text-decoration: none;
+      border-radius: 8px;
+      transition: var(--transition);
+    }
+
+    .case-btn:hover {
+      background: var(--accent);
+      color: var(--white);
+      transform: translateY(-2px);
+    }
+
+    @media (max-width: 1024px) {
+      .case-content-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .case-study-hero h1 {
+        font-size: 2.2rem;
+      }
+
+      .case-study-hero .meta {
+        flex-direction: column;
+        gap: 15px;
+      }
+
+      .case-main-content,
+      .case-sidebar {
+        padding: 25px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="bg-image"></div>
+  <div class="overlay"></div>
+
+  <header>
+    <div class="logo">
+      <a href="index.html">
+        <img src="images/Eai new.png" alt="Emmanuel Agida International">
+      </a>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="consultancy.html">Consultancy</a></li>
+        <li><a href="programs.html">Programs</a></li>
+        <li><a href="consortium.html">Consortium</a></li>
+        <li><a href="case.html">Case Study</a></li>
+        <li><a href="philanthropy.html">Philanthropy</a></li>
+        <li><a href="pub.html">Events</a></li>
+        <li><a href="media.html">Media</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="menu-toggle">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </header>
+
+  <section class="case-study-hero">
+    <div class="container">
+      <div class="case-study-breadcrumb">
+        <a href="case.html">Case Studies</a> / Take Over Leadership Summit
+      </div>
+      
+      <h1>Take Over Leadership Development Summit 2025</h1>
+      
+      <div class="meta">
+        <span><i class="fas fa-users"></i> Take Over Summit</span>
+        <span><i class="fas fa-rocket"></i> Youth & Leadership</span>
+        <span><i class="far fa-calendar-alt"></i> October 30, 2025</span>
+      </div>
+      
+      <div class="case-study-tags-hero">
+        <span class="case-tag-hero">Leadership Development</span>
+        <span class="case-tag-hero">Youth Engagement</span>
+        <span class="case-tag-hero">Capacity Development</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="case-study-content">
+    <div class="container">
+      <div class="case-content-grid">
+        <div class="case-main-content">
+          <div class="case-section">
+            <h2>Project Overview</h2>
+            <p>The Take Over Leadership Development Summit 2025 was designed as a high-impact leadership development symposium focused on equipping young and emerging leaders with the mindset, skills, and civic awareness required to drive sustainable change in governance, business, and society.</p>
+            
+            <p>Emmanuel Agida International (EAI) executed the end-to-end project management for the summit, ensuring strategic coordination, seamless delivery, and alignment with the summit's leadership development objectives.</p>
+
+            <p>Held on <strong>October 30, 2025</strong>, the summit convened young leaders, professionals, and change-makers from diverse backgrounds, creating a platform for dialogue, inspiration, and leadership capacity building.</p>
+          </div>
+
+          <div class="case-section">
+            <h2>Objectives</h2>
+            <p>The summit sought to:</p>
+            
+            <ul>
+              <li>Inspire young people to take responsibility for leadership and nation-building</li>
+              <li>Provide access to experienced public and private sector leaders</li>
+              <li>Promote values-driven leadership, civic engagement, and personal development</li>
+              <li>Foster cross-sector conversations on leadership, governance, and service</li>
+            </ul>
+          </div>
+
+          <div class="case-section">
+            <h2>EAI's Role & Scope of Work</h2>
+            <p>Emmanuel Agida International provided full-scale project management, covering:</p>
+            
+            <ul>
+              <li>Strategic planning and program coordination</li>
+              <li>Speaker engagement and stakeholder liaison</li>
+              <li>Event logistics and operational execution</li>
+              <li>Program flow and session management</li>
+              <li>On-ground coordination and delivery oversight</li>
+            </ul>
+
+            <p>EAI's approach ensured that the summit was delivered with professionalism, clarity of purpose, and strong participant engagement.</p>
+          </div>
+
+          <div class="case-section">
+            <h2>Program Highlights & Speakers</h2>
+            <p>The summit featured high-profile speakers and thought leaders who shared practical insights drawn from public service, corporate leadership, and the creative industry.</p>
+            
+            <div class="speakers-list">
+              <h3 style="color: var(--accent); margin-bottom: 20px; font-size: 1.2rem;">Notable Speakers:</h3>
+              
+              <div class="speaker-item">
+                <div class="speaker-name">Hon. Adewumi Adeyemi</div>
+                <div class="speaker-title">Member, Osun State House of Assembly</div>
+              </div>
+              
+              <div class="speaker-item">
+                <div class="speaker-name">Mr. Oluwadamilola Emmanuel</div>
+                <div class="speaker-title">General Manager, Lagos State Water Authority and Special Adviser to the Lagos State Government</div>
+              </div>
+              
+              <div class="speaker-item">
+                <div class="speaker-name">Ms. Omotunde Adebowale</div>
+                <div class="speaker-title">Actress and Multi-Award-Winning Television Presenter</div>
+              </div>
+            </div>
+
+            <p>Sessions focused on leadership responsibility, public service, career development, influence, and the role of young people in shaping Nigeria's future.</p>
+          </div>
+
+          <div class="case-section">
+            <h2>Impact & Outcomes</h2>
+            <p>The Take Over Leadership Development Summit:</p>
+            
+            <ul>
+              <li>Engaged a broad network of young emerging leaders</li>
+              <li>Strengthened leadership awareness and civic consciousness among participants</li>
+              <li>Provided direct mentorship exposure through interaction with experienced leaders</li>
+              <li>Reinforced the importance of ethical, service-oriented leadership</li>
+            </ul>
+
+            <p>The summit contributed to building a pipeline of informed, motivated young leaders prepared to take active roles in their communities and professional spheres.</p>
+          </div>
+
+          <div class="case-section">
+            <h2>Value Delivered by Emmanuel Agida International</h2>
+            <p>Through disciplined project management and strategic coordination, EAI ensured:</p>
+            
+            <ul>
+              <li>Timely and effective execution of a multi-speaker leadership symposium</li>
+              <li>Positive stakeholder experience for speakers, partners, and participants</li>
+              <li>A well-structured program aligned with leadership development goals</li>
+            </ul>
+
+            <p>The engagement demonstrates EAI's capacity to design, manage, and deliver leadership-focused platforms that translate vision into measurable social impact.</p>
+          </div>
+        </div>
+
+        <div class="case-sidebar">
+          <div class="case-info-item">
+            <div class="case-info-label">Event</div>
+            <div class="case-info-value">Take Over Leadership Development Summit 2025</div>
+          </div>
+
+          <div class="case-info-item">
+            <div class="case-info-label">Client/Platform</div>
+            <div class="case-info-value">Take Over Summit</div>
+          </div>
+
+          <div class="case-info-item">
+            <div class="case-info-label">Engagement Type</div>
+            <div class="case-info-value">Project Management & Strategic Execution</div>
+          </div>
+
+          <div class="case-info-item">
+            <div class="case-info-label">Date</div>
+            <div class="case-info-value">October 30, 2025</div>
+          </div>
+
+          <div class="case-info-item">
+            <div class="case-info-label">Target Audience</div>
+            <div class="case-info-value">Emerging Leaders, Policymakers, Public & Private Sector Stakeholders</div>
+          </div>
+
+          <div class="case-info-item">
+            <div class="case-info-label">Focus Areas</div>
+            <div class="case-info-value">Leadership Development, Youth Empowerment, Civic Engagement, Nation-Building</div>
+          </div>
+
+          <div class="case-info-item">
+            <div class="case-info-label">Key Themes</div>
+            <div class="case-info-value">Values-driven Leadership, Public Service, Career Development, Social Impact</div>
+          </div>
+
+          <div class="case-cta">
+            <h3>Leadership Events & Summits</h3>
+            <p>Let us manage your next leadership development initiative with precision and impact.</p>
+            <a href="contact.html" class="case-btn">
+              <i class="fas fa-arrow-right"></i>
+              Plan Your Summit
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-section">
+          <h3>Contact Us</h3>
+          <p>Email: info@eainternational.net</p>
+          <p>Phone: +234 812 804 8170</p>
+        </div>
+        <div class="footer-section">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="consultancy.html">Consultancy</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Follow Us</h3>
+          <div class="social-links">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 Emmanuel Agida International. All Rights Reserved.</p>
+        <p style="margin-top: 10px; font-size: 0.9rem;">
+          <a href="privacy-policy.html" style="color: var(--accent); text-decoration: underline;">Privacy Policy</a>
+          <span style="color: var(--text-light); margin: 0 8px;">|</span>
+          <a href="terms-and-conditions.html" style="color: var(--accent); text-decoration: underline;">Terms & Conditions</a>
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+
+</html>

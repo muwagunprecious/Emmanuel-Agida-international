@@ -69,8 +69,8 @@
     }
 
     .case-study-content h3 {
-      font-size: 1.4rem;
-      margin-bottom: 15px;
+      font-size: 1.3rem;
+      margin-bottom: 12px;
       color: var(--white);
       font-weight: 600;
       line-height: 1.3;
@@ -78,23 +78,70 @@
 
     .case-study-client {
       color: var(--accent);
-      font-weight: 500;
-      margin-bottom: 15px;
+      font-weight: 600;
+      font-size: 1rem;
+      margin-bottom: 8px;
       display: block;
+    }
+
+    .case-study-industry {
+      color: rgba(255, 255, 255, 0.6);
+      font-size: 0.9rem;
+      margin-bottom: 12px;
+      display: block;
+    }
+
+    .case-study-role {
+      display: inline-block;
+      background: rgba(255, 255, 255, 0.1);
+      color: rgba(255, 255, 255, 0.8);
+      padding: 4px 10px;
+      border-radius: 4px;
+      font-size: 0.85rem;
+      margin-bottom: 12px;
+      font-weight: 500;
     }
 
     .case-study-excerpt {
       color: rgba(255, 255, 255, 0.7);
       line-height: 1.6;
-      margin-bottom: 20px;
+      margin-bottom: 15px;
+      font-size: 0.95rem;
     }
 
     .case-study-meta {
       display: flex;
       justify-content: space-between;
+      align-items: center;
       color: rgba(255, 255, 255, 0.6);
-      font-size: 0.9rem;
-      margin-bottom: 20px;
+      font-size: 0.85rem;
+      margin-bottom: 15px;
+      padding-top: 15px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .case-study-date {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      font-weight: 500;
+    }
+
+    .case-study-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 15px;
+    }
+
+    .case-tag {
+      background: rgba(139, 69, 19, 0.2);
+      color: var(--accent);
+      padding: 4px 10px;
+      border-radius: 12px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      border: 1px solid rgba(139, 69, 19, 0.3);
     }
 
     .case-study-stats {
@@ -413,112 +460,103 @@
       </div>
 
       <div class="case-studies-grid">
-        <!-- Case Study 1 -->
+        <!-- Case Study 1 - Blue Seal Energy -->
         <div class="case-study-card" data-case="1">
           <div class="case-study-image">
-            <img src="images/img1.jpeg" alt="Financial Services Transformation">
-            <div class="case-study-category">FINANCIAL SERVICES</div>
+            <img src="images/img1.jpeg" alt="Blue Seal Energy Plant Launch">
           </div>
           <div class="case-study-content">
-            <h3>Leadership Transformation in Banking Sector</h3>
-            <span class="case-study-client">Leading Nigerian Bank</span>
-            <p class="case-study-excerpt">How we helped a major financial institution develop next-generation leaders to
-              drive digital transformation and market expansion.</p>
-
-            <div class="case-study-stats">
-              <div class="stat-item">
-                <span class="stat-number">45%</span>
-                <span class="stat-label">Revenue Growth</span>
-              </div>
-              <div class="stat-item">
-                <span class="stat-number">67%</span>
-                <span class="stat-label">Employee Engagement</span>
-              </div>
+            <h3>Blue Seal Energy Chemical Plant Launch</h3>
+            <span class="case-study-client">Blue Seal Energy Group (U.S.–Nigeria)</span>
+            <span class="case-study-industry">Energy & Industrial Manufacturing</span>
+            <span class="case-study-role">Strategic Consultancy, Market Activation & Launch Management</span>
+            <p class="case-study-excerpt">Successfully launched Nigeria's first ultra-modern chemical manufacturing facility valued at $12.5M with 10M tons annual capacity, positioning the company as a credible large-scale manufacturer and contributor to national industrialization.</p>
+            
+            <div class="case-study-tags">
+              <span class="case-tag">Strategic Advisory</span>
+              <span class="case-tag">Market Activation</span>
+              <span class="case-tag">Launch Management</span>
             </div>
 
             <div class="case-study-meta">
-              <span><i class="far fa-clock"></i> 6 Months</span>
-              <span><i class="fas fa-users"></i> 25 Executives</span>
+              <span class="case-study-date">
+                <i class="far fa-calendar-alt"></i>
+                February 2024
+              </span>
             </div>
 
             <div class="case-study-actions">
-              <a href="#" class="case-study-btn primary view-case-btn">
+              <a href="case-blue-seal.html" class="case-study-btn primary view-case-btn">
                 <i class="fas fa-eye"></i>
-                View Case Study
+                View Full Case Study
               </a>
             </div>
           </div>
         </div>
 
-        <!-- Case Study 2 -->
+        <!-- Case Study 2 - Education Colloquium -->
         <div class="case-study-card" data-case="2">
           <div class="case-study-image">
-            <img src="images/img2.jpeg" alt="Manufacturing Excellence">
-            <div class="case-study-category">MANUFACTURING</div>
+            <img src="images/img2.jpeg" alt="Ibiyemi Olatunji-Bello Colloquium">
           </div>
           <div class="case-study-content">
-            <h3>Operational Excellence Through Leadership</h3>
-            <span class="case-study-client">Multinational Manufacturing Company</span>
-            <p class="case-study-excerpt">Transforming operational leadership to drive efficiency, quality improvement,
-              and sustainable growth across African operations.</p>
-
-            <div class="case-study-stats">
-              <div class="stat-item">
-                <span class="stat-number">32%</span>
-                <span class="stat-label">Efficiency Gain</span>
-              </div>
-              <div class="stat-item">
-                <span class="stat-number">58%</span>
-                <span class="stat-label">Quality Improvement</span>
-              </div>
+            <h3>The Ibiyemi Olatunji-Bello Colloquium</h3>
+            <span class="case-study-client">Lagos State University (LASU)</span>
+            <span class="case-study-industry">Education & Policy Development</span>
+            <span class="case-study-role">Policy and Institutional Strengthening</span>
+            <p class="case-study-excerpt">Convened high-level policy forum on education reform featuring senior officials and academic leaders, strengthening case for targeted investment in education technology and positioning education as scalable development driver.</p>
+            
+            <div class="case-study-tags">
+              <span class="case-tag">Policy Development</span>
+              <span class="case-tag">Institutional Strengthening</span>
+              <span class="case-tag">Stakeholder Engagement</span>
             </div>
 
             <div class="case-study-meta">
-              <span><i class="far fa-clock"></i> 9 Months</span>
-              <span><i class="fas fa-users"></i> 40 Managers</span>
+              <span class="case-study-date">
+                <i class="far fa-calendar-alt"></i>
+                May 2024
+              </span>
             </div>
 
             <div class="case-study-actions">
-              <a href="#" class="case-study-btn primary view-case-btn">
+              <a href="case-colloquium.html" class="case-study-btn primary view-case-btn">
                 <i class="fas fa-eye"></i>
-                View Case Study
+                View Full Case Study
               </a>
             </div>
           </div>
         </div>
 
-        <!-- Case Study 3 -->
+        <!-- Case Study 3 - Take Over Summit -->
         <div class="case-study-card" data-case="3">
           <div class="case-study-image">
-            <img src="images/img3.jpeg" alt="Public Sector Reform">
-            <div class="case-study-category">PUBLIC SECTOR</div>
+            <img src="images/img3.jpeg" alt="Take Over Leadership Summit 2025">
           </div>
           <div class="case-study-content">
-            <h3>Public Sector Leadership Development</h3>
-            <span class="case-study-client">State Government Ministry</span>
-            <p class="case-study-excerpt">Building leadership capacity in public service to drive policy implementation,
-              service delivery, and organizational effectiveness.</p>
-
-            <div class="case-study-stats">
-              <div class="stat-item">
-                <span class="stat-number">78%</span>
-                <span class="stat-label">Program Completion</span>
-              </div>
-              <div class="stat-item">
-                <span class="stat-number">41%</span>
-                <span class="stat-label">Service Improvement</span>
-              </div>
+            <h3>Take Over Leadership Development Summit 2025</h3>
+            <span class="case-study-client">Take Over Summit</span>
+            <span class="case-study-industry">Youth Development & Leadership</span>
+            <span class="case-study-role">Project Management & Strategic Execution</span>
+            <p class="case-study-excerpt">Delivered comprehensive project management for high-impact leadership symposium, engaging young emerging leaders with public and private sector leaders, building pipeline of informed, motivated leaders prepared for active community roles.</p>
+            
+            <div class="case-study-tags">
+              <span class="case-tag">Leadership Development</span>
+              <span class="case-tag">Youth Engagement</span>
+              <span class="case-tag">Capacity Development</span>
             </div>
 
             <div class="case-study-meta">
-              <span><i class="far fa-clock"></i> 12 Months</span>
-              <span><i class="fas fa-users"></i> 150 Officials</span>
+              <span class="case-study-date">
+                <i class="far fa-calendar-alt"></i>
+                October 2025
+              </span>
             </div>
 
             <div class="case-study-actions">
-              <a href="#" class="case-study-btn primary view-case-btn">
+              <a href="case-takeover-summit.html" class="case-study-btn primary view-case-btn">
                 <i class="fas fa-eye"></i>
-                View Case Study
+                View Full Case Study
               </a>
             </div>
           </div>
@@ -526,67 +564,6 @@
       </div>
     </div>
   </section>
-
-  <!-- Case Study Modal -->
-  <div class="case-study-modal" id="caseStudyModal">
-    <div class="modal-content">
-      <div class="modal-close" id="modalClose">
-        <i class="fas fa-times"></i>
-      </div>
-      <div class="modal-header">
-        <img src="images/img4.jpeg" alt="Case Study Detail">
-      </div>
-      <div class="modal-body">
-        <span class="modal-category" id="modalCategory">FINANCIAL SERVICES</span>
-        <h2 class="modal-title" id="modalTitle">Leadership Transformation in Banking Sector</h2>
-        <p class="modal-client" id="modalClient">Leading Nigerian Bank</p>
-
-        <div class="modal-stats">
-          <div class="modal-stat">
-            <span class="modal-stat-number">45%</span>
-            <span class="modal-stat-label">Revenue Growth</span>
-          </div>
-          <div class="modal-stat">
-            <span class="modal-stat-number">67%</span>
-            <span class="modal-stat-label">Employee Engagement</span>
-          </div>
-          <div class="modal-stat">
-            <span class="modal-stat-number">32%</span>
-            <span class="modal-stat-label">Leadership Effectiveness</span>
-          </div>
-          <div class="modal-stat">
-            <span class="modal-stat-number">89%</span>
-            <span class="modal-stat-label">Program Satisfaction</span>
-          </div>
-        </div>
-
-        <div class="modal-section">
-          <h3>Challenge</h3>
-          <p>The client, a leading Nigerian bank, faced significant challenges in adapting to digital transformation
-            while maintaining market leadership.</p>
-        </div>
-
-        <div class="modal-section">
-          <h3>Solution</h3>
-          <p>We designed and implemented a comprehensive leadership transformation program focused on Digital Leadership
-            Academy and Change Management Framework.</p>
-        </div>
-
-        <div class="modal-section">
-          <h3>Results</h3>
-          <p>The program delivered significant measurable outcomes within 6 months including 45% revenue growth in
-            digital banking services.</p>
-        </div>
-
-        <div class="modal-actions">
-          <a href="https://wa.me/2348128048170" class="modal-btn" target="_blank">
-            <i class="fab fa-whatsapp"></i>
-            Contact for Details
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
 
   <footer>
     <div class="container">
@@ -626,33 +603,6 @@
   </footer>
 
   <script src="script.js"></script>
-  <script>
-    // Case Study Modal Functionality (Simplified)
-    const modal = document.getElementById('caseStudyModal');
-    const modalClose = document.getElementById('modalClose');
-    const viewCaseBtns = document.querySelectorAll('.view-case-btn');
-
-    viewCaseBtns.forEach(btn => {
-      btn.addEventListener('click', function (e) {
-        e.preventDefault();
-        // In a full implementation, you'd populate data based on ID here
-        modal.style.display = 'block';
-        document.body.style.overflow = 'hidden';
-      });
-    });
-
-    modalClose.addEventListener('click', function () {
-      modal.style.display = 'none';
-      document.body.style.overflow = 'auto';
-    });
-
-    window.addEventListener('click', function (e) {
-      if (e.target === modal) {
-        modal.style.display = 'none';
-        document.body.style.overflow = 'auto';
-      }
-    });
-  </script>
 </body>
 
 </html>
