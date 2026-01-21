@@ -722,7 +722,7 @@ footer::before {
 }
 
 .footer-content {
-    padding-bottom: 40px;
+    padding-bottom: 20px;
 }
 
 .footer-grid {
@@ -839,9 +839,9 @@ footer::before {
 }
 
 .footer-bottom {
-    background: rgba(139, 69, 19, 0.08);
+    background: transparent;
     padding: 25px 0;
-    border-top: 1px solid rgba(139, 69, 19, 0.2);
+    border-top: 1px solid rgba(139, 69, 19, 0.15);
     margin-top: 40px;
 }
 
