@@ -212,11 +212,13 @@ nav ul li a.active::after {
     flex-direction: column;
     justify-content: space-between;
     width: 30px;
-    height: 21px;
+    height: 22px;
     background: transparent;
     border: none;
     cursor: pointer;
     z-index: 1002;
+    padding: 0;
+    position: relative;
 }
 
 .menu-toggle span {
@@ -225,19 +227,27 @@ nav ul li a.active::after {
     width: 100%;
     background-color: var(--white);
     border-radius: 3px;
-    transition: var(--transition);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transform-origin: center;
+}
+
+.menu-toggle:hover span {
+    background-color: var(--accent);
 }
 
 .menu-toggle.open span:nth-child(1) {
-    transform: rotate(45deg) translate(6px, 6px);
+    transform: rotate(45deg) translate(7px, 7px);
+    background-color: var(--accent);
 }
 
 .menu-toggle.open span:nth-child(2) {
     opacity: 0;
+    transform: scaleX(0);
 }
 
 .menu-toggle.open span:nth-child(3) {
-    transform: rotate(-45deg) translate(6px, -8px);
+    transform: rotate(-45deg) translate(7px, -7px);
+    background-color: var(--accent);
 }
 
 /* Typography base */
@@ -882,52 +892,99 @@ footer::before {
 /* Tablet (Medium devices) */
 @media (max-width: 1024px) {
     header {
-        padding: 12px 30px;
+        padding: 15px 30px;
+        flex-wrap: wrap;
+    }
+
+    .logo-section {
+        flex: 0 0 auto;
+    }
+
+    .tagline {
+        font-size: 0.7rem;
+    }
+
+    nav {
+        flex: 1;
+        justify-content: flex-end;
     }
 
     nav ul {
-        gap: 12px;
+        gap: 8px;
+        flex-wrap: wrap;
+        justify-content: flex-end;
     }
 
     nav ul li a {
-        font-size: 0.85rem;
-        padding: 6px 8px;
+        font-size: 0.82rem;
+        padding: 7px 10px;
+    }
+
+    .footer-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 40px;
+    }
+
+    .footer-about {
+        grid-column: 1 / -1;
     }
 }
 
 /* Small Tablet to Large Mobile */
 @media (max-width: 768px) {
     header {
-        padding: 12px 15px;
+        padding: 12px 20px;
         justify-content: space-between;
+        flex-wrap: nowrap;
+    }
+
+    .logo-section {
+        flex-direction: row;
+        gap: 12px;
+        align-items: center;
+        flex: 1;
     }
 
     .logo img {
         height: 45px;
     }
 
+    .tagline-section {
+        display: flex;
+    }
+
+    .tagline {
+        font-size: 0.65rem;
+        white-space: nowrap;
+    }
+
     .menu-toggle {
         display: flex;
+        order: 3;
     }
 
     nav {
         position: fixed;
-        top: 60px;
+        top: 70px;
         left: 0;
         width: 100%;
         height: 0;
-        background: linear-gradient(135deg, var(--dark-light) 0%, rgba(26, 26, 26, 0.95) 100%);
-        overflow-y: auto;
-        overflow-x: hidden;
-        transition: height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        background: linear-gradient(135deg, rgba(17, 17, 17, 0.98) 0%, rgba(26, 26, 26, 0.98) 100%);
+        backdrop-filter: blur(10px);
+        overflow: hidden;
+        transition: height 0.3s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease;
+        border-bottom: 1px solid rgba(139, 69, 19, 0.2);
         z-index: 999;
+        opacity: 0;
+        pointer-events: none;
     }
 
     nav.open {
-        height: auto;
-        max-height: 100vh;
+        height: calc(100vh - 70px);
         padding: 20px 0;
+        opacity: 1;
+        pointer-events: auto;
+        overflow-y: auto;
     }
 
     nav ul {
@@ -935,12 +992,39 @@ footer::before {
         width: 100%;
         gap: 0;
         flex-wrap: nowrap;
+        padding: 0;
     }
 
     nav ul li {
         width: 100%;
-        text-align: center;
+        text-align: left;
         border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        opacity: 0;
+        transform: translateX(-20px);
+        animation: slideIn 0.3s ease forwards;
+    }
+
+    nav.open ul li {
+        opacity: 1;
+        transform: translateX(0);
+    }
+
+    nav.open ul li:nth-child(1) { animation-delay: 0.05s; }
+    nav.open ul li:nth-child(2) { animation-delay: 0.1s; }
+    nav.open ul li:nth-child(3) { animation-delay: 0.15s; }
+    nav.open ul li:nth-child(4) { animation-delay: 0.2s; }
+    nav.open ul li:nth-child(5) { animation-delay: 0.25s; }
+    nav.open ul li:nth-child(6) { animation-delay: 0.3s; }
+    nav.open ul li:nth-child(7) { animation-delay: 0.35s; }
+    nav.open ul li:nth-child(8) { animation-delay: 0.4s; }
+    nav.open ul li:nth-child(9) { animation-delay: 0.45s; }
+    nav.open ul li:nth-child(10) { animation-delay: 0.5s; }
+
+    @keyframes slideIn {
+        to {
+            opacity: 1;
+            transform: translateX(0);
+        }
     }
 
     nav ul li:last-child {
@@ -949,16 +1033,18 @@ footer::before {
 
     nav ul li a {
         display: block;
-        padding: 16px 15px;
+        padding: 18px 25px;
         width: 100%;
-        font-size: 0.95rem;
-        transition: background-color 0.3s ease;
+        font-size: 1rem;
+        transition: all 0.3s ease;
+        text-align: left;
     }
 
     nav ul li a:hover,
     nav ul li a.active {
-        background-color: rgba(139, 69, 19, 0.2);
+        background-color: rgba(139, 69, 19, 0.15);
         color: var(--accent);
+        padding-left: 35px;
     }
 
     nav ul li a::after {
@@ -995,11 +1081,15 @@ footer::before {
 /* Small Mobile Devices */
 @media (max-width: 480px) {
     header {
-        padding: 10px 12px;
+        padding: 10px 15px;
     }
 
     .logo img {
         height: 40px;
+    }
+
+    .tagline-section {
+        display: none;
     }
 
     .menu-toggle {
@@ -1011,9 +1101,22 @@ footer::before {
         height: 2.5px;
     }
 
+    nav {
+        top: 60px;
+    }
+
+    nav.open {
+        height: calc(100vh - 60px);
+    }
+
     nav ul li a {
-        padding: 14px 12px;
-        font-size: 0.9rem;
+        padding: 16px 20px;
+        font-size: 0.95rem;
+    }
+
+    nav ul li a:hover,
+    nav ul li a.active {
+        padding-left: 30px;
     }
 
     .page-title {

@@ -15,8 +15,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Mobile Menu Toggle
     menuToggle.addEventListener('click', () => {
-        menuToggle.classList.toggle('open');
+        const isOpen = menuToggle.classList.toggle('open');
         nav.classList.toggle('open');
+        
+        // Prevent body scroll when menu is open
+        if (isOpen) {
+            document.body.style.overflow = 'hidden';
+        } else {
+            document.body.style.overflow = '';
+        }
     });
 
     // Close menu when clicking a link
@@ -24,7 +31,19 @@ document.addEventListener('DOMContentLoaded', () => {
         link.addEventListener('click', () => {
             menuToggle.classList.remove('open');
             nav.classList.remove('open');
+            document.body.style.overflow = '';
         });
+    });
+
+    // Close menu when clicking outside
+    document.addEventListener('click', (e) => {
+        if (nav.classList.contains('open') && 
+            !nav.contains(e.target) && 
+            !menuToggle.contains(e.target)) {
+            menuToggle.classList.remove('open');
+            nav.classList.remove('open');
+            document.body.style.overflow = '';
+        }
     });
 
     // Highlight active link
