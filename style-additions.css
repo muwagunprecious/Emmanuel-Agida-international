@@ -241,6 +241,99 @@
     margin: 0;
 }
 
+/* About the Founder Section */
+.about-founder-section {
+    padding: 100px 20px;
+    background: linear-gradient(135deg, rgba(210, 105, 30, 0.08), rgba(139, 69, 19, 0.08));
+    position: relative;
+}
+
+.about-founder-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--accent), transparent);
+}
+
+.founder-content {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 60px;
+    align-items: center;
+    margin-top: 40px;
+}
+
+.founder-text {
+    padding-right: 20px;
+}
+
+.founder-text p {
+    font-size: 1.1rem;
+    line-height: 1.9;
+    color: rgba(255, 255, 255, 0.85);
+    margin-bottom: 25px;
+}
+
+.founder-text .btn {
+    margin-top: 20px;
+}
+
+.founder-image-placeholder {
+    background: linear-gradient(135deg, rgba(139, 69, 19, 0.3), rgba(210, 105, 30, 0.3));
+    border: 2px solid rgba(210, 105, 30, 0.3);
+    border-radius: 20px;
+    padding: 60px 40px;
+    min-height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    backdrop-filter: blur(10px);
+}
+
+.founder-image-placeholder::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(210, 105, 30, 0.1) 0%, transparent 70%);
+    animation: pulse 3s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); opacity: 0.5; }
+    50% { transform: scale(1.1); opacity: 0.8; }
+}
+
+.founder-quote {
+    text-align: center;
+    position: relative;
+    z-index: 1;
+}
+
+.founder-quote i {
+    font-size: 3rem;
+    color: var(--accent);
+    margin-bottom: 20px;
+    display: block;
+    opacity: 0.6;
+}
+
+.founder-quote p {
+    font-size: 1.5rem;
+    font-weight: 600;
+    font-style: italic;
+    color: var(--white);
+    line-height: 1.6;
+    margin: 0;
+}
+
 /* Commitment Section - Modern Cards */
 .commitment-section {
     padding: 100px 20px;
@@ -593,6 +686,24 @@
         padding-right: 0;
     }
 
+    .founder-content {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .founder-text {
+        padding-right: 0;
+    }
+
+    .founder-image-placeholder {
+        min-height: 300px;
+        padding: 40px 30px;
+    }
+
+    .founder-quote p {
+        font-size: 1.3rem;
+    }
+
     .commitment-grid {
         grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
         gap: 30px;
@@ -632,6 +743,7 @@
     }
 
     .what-we-do-section,
+    .about-founder-section,
     .commitment-section,
     .csr-section,
     .vision-roadmap {
@@ -713,9 +825,23 @@
     }
 
     .intro-text,
+    .founder-text p,
     .csr-content p,
     .case-studies-content p {
         font-size: 0.95rem;
+    }
+
+    .founder-image-placeholder {
+        min-height: 250px;
+        padding: 30px 20px;
+    }
+
+    .founder-quote i {
+        font-size: 2rem;
+    }
+
+    .founder-quote p {
+        font-size: 1.1rem;
     }
 
     .features-heading {
