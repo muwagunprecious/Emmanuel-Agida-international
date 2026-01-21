@@ -1,0 +1,793 @@
+/* ========================================
+   MODERN HOMEPAGE REDESIGN - 2026
+   ======================================== */
+
+/* Hero Section - Minimal & Impactful */
+.hero-section {
+    position: relative;
+    width: 100%;
+    min-height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 20px;
+}
+
+.hero-container {
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.hero-content {
+    text-align: center;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.hero-title {
+    font-size: 3.5rem;
+    font-weight: 800;
+    margin-bottom: 30px;
+    background: linear-gradient(135deg, #ffffff 0%, #e0e0e0 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    line-height: 1.2;
+    letter-spacing: -0.5px;
+}
+
+.hero-subtitle {
+    font-size: 1.25rem;
+    line-height: 1.8;
+    margin-bottom: 50px;
+    color: rgba(255, 255, 255, 0.85);
+    font-weight: 400;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.hero-cta {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px 36px;
+    font-size: 1rem;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 10px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border: none;
+    cursor: pointer;
+    letter-spacing: 0.3px;
+    position: relative;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s ease;
+}
+
+.btn:hover::before {
+    left: 100%;
+}
+
+.btn-hero-primary {
+    background: linear-gradient(135deg, var(--primary), var(--accent));
+    color: var(--white);
+    box-shadow: 0 10px 30px rgba(139, 69, 19, 0.35);
+}
+
+.btn-hero-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 40px rgba(139, 69, 19, 0.45);
+}
+
+.btn-hero-secondary {
+    background: var(--accent);
+    color: var(--white);
+    box-shadow: 0 10px 30px rgba(210, 105, 30, 0.35);
+}
+
+.btn-hero-secondary:hover {
+    background: var(--primary-light);
+    transform: translateY(-3px);
+    box-shadow: 0 15px 40px rgba(210, 105, 30, 0.45);
+}
+
+.btn-hero-outline {
+    background: transparent;
+    color: var(--white);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(10px);
+}
+
+.btn-hero-outline:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: var(--accent);
+    color: var(--accent);
+    transform: translateY(-2px);
+}
+
+.btn-accent {
+    background: var(--accent);
+    color: var(--white);
+    display: inline-flex;
+    margin-top: 20px;
+}
+
+.btn-accent:hover {
+    background: var(--primary-light);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(210, 105, 30, 0.4);
+}
+
+/* What We Do Section */
+.what-we-do-section {
+    padding: 100px 20px;
+    background: linear-gradient(180deg, rgba(139, 69, 19, 0.03) 0%, rgba(210, 105, 30, 0.03) 100%);
+}
+
+.intro-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: start;
+}
+
+.intro-content {
+    padding-right: 20px;
+}
+
+.section-title-left {
+    font-size: 2.8rem;
+    font-weight: 700;
+    margin-bottom: 30px;
+    color: var(--accent);
+    position: relative;
+    padding-bottom: 20px;
+}
+
+.section-title-left::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 60px;
+    height: 4px;
+    background: linear-gradient(to right, var(--primary), var(--accent));
+    border-radius: 2px;
+}
+
+.intro-text {
+    font-size: 1.1rem;
+    line-height: 1.9;
+    color: rgba(255, 255, 255, 0.85);
+    margin-bottom: 25px;
+}
+
+.intro-features {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(210, 105, 30, 0.15);
+    border-radius: 16px;
+    padding: 40px;
+    backdrop-filter: blur(10px);
+}
+
+.features-heading {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--accent);
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.feature-item {
+    display: flex;
+    gap: 20px;
+    align-items: start;
+    margin-bottom: 25px;
+    padding: 20px;
+    background: rgba(210, 105, 30, 0.05);
+    border-radius: 12px;
+    transition: all 0.3s ease;
+}
+
+.feature-item:hover {
+    background: rgba(210, 105, 30, 0.1);
+    transform: translateX(5px);
+}
+
+.feature-icon-small {
+    flex-shrink: 0;
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(135deg, var(--primary), var(--accent));
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--white);
+    font-size: 1.3rem;
+}
+
+.feature-text h4 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 5px;
+    color: var(--white);
+}
+
+.feature-text p {
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.7);
+    margin: 0;
+}
+
+/* Commitment Section - Modern Cards */
+.commitment-section {
+    padding: 100px 20px;
+    background: rgba(17, 17, 17, 0.5);
+}
+
+.section-description {
+    text-align: center;
+    font-size: 1.2rem;
+    color: rgba(255, 255, 255, 0.7);
+    margin-top: -40px;
+    margin-bottom: 60px;
+}
+
+.commitment-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 35px;
+    margin-top: 50px;
+}
+
+.commitment-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(210, 105, 30, 0.2);
+    border-radius: 16px;
+    padding: 40px 30px;
+    text-align: center;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.commitment-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary), var(--accent));
+    transform: scaleX(0);
+    transition: transform 0.4s ease;
+}
+
+.commitment-card:hover::before {
+    transform: scaleX(1);
+}
+
+.commitment-card:hover {
+    background: rgba(255, 255, 255, 0.06);
+    border-color: var(--accent);
+    transform: translateY(-8px);
+    box-shadow: 0 20px 50px rgba(139, 69, 19, 0.25);
+}
+
+.commitment-icon {
+    width: 70px;
+    height: 70px;
+    background: linear-gradient(135deg, var(--primary), var(--accent));
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 25px;
+    font-size: 2rem;
+    color: var(--white);
+    transition: all 0.4s ease;
+}
+
+.commitment-card:hover .commitment-icon {
+    transform: rotateY(360deg);
+}
+
+.commitment-card h3 {
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 15px;
+    color: var(--white);
+}
+
+.commitment-card p {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.75);
+    margin: 0;
+}
+
+/* CSR Section - Improved */
+.csr-section {
+    padding: 100px 20px;
+    background: linear-gradient(135deg, rgba(139, 69, 19, 0.08), rgba(210, 105, 30, 0.08));
+    position: relative;
+}
+
+.csr-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--accent), transparent);
+}
+
+.csr-content {
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.csr-content p {
+    font-size: 1.15rem;
+    margin-bottom: 25px;
+    line-height: 1.9;
+    color: rgba(255, 255, 255, 0.85);
+}
+
+.csr-content .btn {
+    margin-top: 30px;
+}
+
+/* Vision Roadmap - Enhanced */
+.vision-roadmap {
+    padding: 100px 20px;
+    background: rgba(0, 0, 0, 0.3);
+}
+
+.roadmap-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 50px;
+    margin-top: 60px;
+}
+
+.roadmap-item {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(210, 105, 30, 0.2);
+    padding: 50px 30px;
+    border-radius: 20px;
+    text-align: center;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.roadmap-item::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary), var(--accent));
+    transform: scaleX(0);
+    transition: transform 0.4s ease;
+}
+
+.roadmap-item:hover::after {
+    transform: scaleX(1);
+}
+
+.roadmap-item:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: var(--accent);
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 25px 60px rgba(139, 69, 19, 0.3);
+}
+
+.roadmap-icon {
+    font-size: 3.5rem;
+    color: var(--accent);
+    margin-bottom: 25px;
+    transition: all 0.4s ease;
+}
+
+.roadmap-item:hover .roadmap-icon {
+    transform: scale(1.15);
+    color: var(--primary-light);
+}
+
+.roadmap-content {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.roadmap-current {
+    font-size: 2.8rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, var(--accent), var(--primary-light));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.roadmap-label {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--white);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.roadmap-target {
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.6);
+    font-style: italic;
+    margin-top: 10px;
+}
+
+/* Case Studies Section */
+.case-studies-section {
+    padding: 80px 20px;
+    background: linear-gradient(135deg, rgba(210, 105, 30, 0.05), rgba(139, 69, 19, 0.05));
+}
+
+.case-studies-content {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.case-studies-content p {
+    font-size: 1.15rem;
+    margin-bottom: 35px;
+    line-height: 1.9;
+    color: rgba(255, 255, 255, 0.85);
+}
+
+/* Newsletter Modal - Polished */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(10px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    padding: 20px;
+}
+
+.modal.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal-content {
+    background: linear-gradient(135deg, rgba(26, 26, 26, 0.98), rgba(17, 17, 17, 0.98));
+    border: 1px solid rgba(210, 105, 30, 0.3);
+    border-radius: 20px;
+    padding: 50px;
+    max-width: 600px;
+    width: 100%;
+    position: relative;
+    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.7);
+    animation: slideIn 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(-80px) scale(0.95);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+    }
+}
+
+.modal-close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    color: var(--white);
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    padding: 10px;
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-close:hover {
+    background: var(--accent);
+    transform: rotate(90deg);
+}
+
+.modal-header {
+    margin-bottom: 35px;
+    text-align: center;
+}
+
+.modal-header h2 {
+    font-size: 2rem;
+    margin-bottom: 15px;
+    background: linear-gradient(135deg, var(--accent), var(--primary-light));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.modal-header p {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+#substack-container {
+    margin-top: 25px;
+}
+
+/* ========================================
+   RESPONSIVE DESIGN
+   ======================================== */
+
+@media (max-width: 1200px) {
+    .intro-grid {
+        gap: 60px;
+    }
+}
+
+@media (max-width: 968px) {
+    .hero-title {
+        font-size: 2.8rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1.1rem;
+    }
+
+    .intro-grid {
+        grid-template-columns: 1fr;
+        gap: 50px;
+    }
+
+    .intro-content {
+        padding-right: 0;
+    }
+
+    .commitment-grid {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 30px;
+    }
+
+    .roadmap-grid {
+        gap: 40px;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-section {
+        min-height: 80vh;
+        padding: 60px 20px;
+    }
+
+    .hero-title {
+        font-size: 2.2rem;
+        margin-bottom: 25px;
+    }
+
+    .hero-subtitle {
+        font-size: 1rem;
+        margin-bottom: 40px;
+    }
+
+    .hero-cta {
+        flex-direction: column;
+        gap: 15px;
+        width: 100%;
+    }
+
+    .btn {
+        width: 100%;
+        justify-content: center;
+        padding: 15px 30px;
+    }
+
+    .what-we-do-section,
+    .commitment-section,
+    .csr-section,
+    .vision-roadmap {
+        padding: 70px 20px;
+    }
+
+    .section-title-left {
+        font-size: 2.2rem;
+    }
+
+    .intro-text {
+        font-size: 1rem;
+    }
+
+    .intro-features {
+        padding: 30px 20px;
+    }
+
+    .feature-item {
+        flex-direction: column;
+        text-align: center;
+        align-items: center;
+    }
+
+    .commitment-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .roadmap-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .roadmap-item {
+        padding: 40px 25px;
+    }
+
+    .modal-content {
+        padding: 35px 25px;
+    }
+
+    .modal-header h2 {
+        font-size: 1.6rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-section {
+        min-height: 70vh;
+        padding: 40px 15px;
+    }
+
+    .hero-title {
+        font-size: 1.8rem;
+        margin-bottom: 20px;
+    }
+
+    .hero-title br {
+        display: none;
+    }
+
+    .hero-subtitle {
+        font-size: 0.95rem;
+        margin-bottom: 30px;
+    }
+
+    .btn {
+        padding: 14px 24px;
+        font-size: 0.95rem;
+    }
+
+    .btn i {
+        font-size: 0.9rem;
+    }
+
+    .section-title,
+    .section-title-left {
+        font-size: 1.8rem;
+    }
+
+    .intro-text,
+    .csr-content p,
+    .case-studies-content p {
+        font-size: 0.95rem;
+    }
+
+    .features-heading {
+        font-size: 1.2rem;
+    }
+
+    .feature-item {
+        padding: 15px;
+    }
+
+    .feature-icon-small {
+        width: 45px;
+        height: 45px;
+        font-size: 1.1rem;
+    }
+
+    .feature-text h4 {
+        font-size: 1rem;
+    }
+
+    .feature-text p {
+        font-size: 0.9rem;
+    }
+
+    .commitment-card {
+        padding: 30px 20px;
+    }
+
+    .commitment-icon {
+        width: 60px;
+        height: 60px;
+        font-size: 1.6rem;
+    }
+
+    .commitment-card h3 {
+        font-size: 1.1rem;
+    }
+
+    .commitment-card p {
+        font-size: 0.95rem;
+    }
+
+    .roadmap-current {
+        font-size: 2.2rem;
+    }
+
+    .roadmap-label {
+        font-size: 1rem;
+    }
+
+    .roadmap-target {
+        font-size: 0.9rem;
+    }
+
+    .modal-content {
+        padding: 25px 20px;
+        border-radius: 16px;
+    }
+
+    .modal-header h2 {
+        font-size: 1.4rem;
+    }
+
+    .modal-header p {
+        font-size: 0.9rem;
+    }
+
+    .modal-close {
+        width: 40px;
+        height: 40px;
+        font-size: 1.3rem;
+        top: 15px;
+        right: 15px;
+    }
+}

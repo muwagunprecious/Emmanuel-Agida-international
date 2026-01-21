@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style-additions.css">
   <title>Emmanuel Agida International - Leadership Development</title>
 </head>
 
@@ -16,10 +17,15 @@
 
   <!-- Professional Header -->
   <header>
-    <div class="logo">
-      <a href="index.html">
-        <img src="images/Eai new.png" alt="Emmanuel Agida International">
-      </a>
+    <div class="logo-section">
+      <div class="logo">
+        <a href="index.html">
+          <img src="images/Eai new.png" alt="Emmanuel Agida International">
+        </a>
+      </div>
+      <div class="tagline-section">
+        <p class="tagline">Shaping Minds<span class="tagline-dot">.</span> Building Nations<span class="tagline-dot">.</span></p>
+      </div>
     </div>
     <nav>
       <ul>
@@ -43,93 +49,146 @@
   </header>
 
   <!-- Hero Section -->
-  <section class="youth-section">
-    <div class="content-container">
-      <h1 class="anniversary">Half a Decade in Leadership Development</h1>
-      <p class="goal">
-        Committed to raising the next generation of emerging global leaders through innovative training and strategic
-        development programs.
-      </p>
-      <div class="divider"></div>
-      <a href="#" class="apply-btn">
-        <i class="fas fa-envelope"></i>
-        Sign Up to Our Newsletter
-      </a>
+  <section class="hero-section">
+    <div class="hero-container">
+      <div class="hero-content">
+        <h1 class="hero-title">Investing in Leaders.<br>Transforming Organizations.<br>Building Sustainable Futures.</h1>
+        <p class="hero-subtitle">
+          A global leadership, corporate consultancy, and development institution delivering high-impact solutions for individuals, organizations, and governments.
+        </p>
+        <div class="hero-cta">
+          <a href="consultancy.html" class="btn btn-hero-primary">
+            <i class="fas fa-briefcase"></i>
+            Our Services
+          </a>
+          <a href="consortium.html" class="btn btn-hero-secondary">
+            <i class="fas fa-network-wired"></i>
+            Join Consortium
+          </a>
+          <button class="btn btn-hero-outline" id="newsletterBtn">
+            <i class="fas fa-envelope"></i>
+            Newsletter
+          </button>
+        </div>
+      </div>
     </div>
   </section>
 
-  <!-- About Teaser Section (Replaced old About Founder) -->
-  <section id="about" class="about-section">
+  <!-- What We Do Section -->
+  <section class="what-we-do-section">
     <div class="container">
-      <div class="content-block" style="text-align: center;">
-        <h2 style="text-align: center;">Who We Are</h2>
-        <p style="max-width: 800px; margin: 0 auto 30px;">
-          Emmanuel Agida International (EAI) is a global leadership, entrepreneurship, and development-focused
-          organization committed to investing in the next generation of global leaders. EAI
-          exists to nurture values-driven individuals, institutions, and systems capable of transforming societies.
-        </p>
-        <a href="about.html" class="apply-btn" style="padding: 12px 30px; font-size: 0.9rem;">Read More About Us</a>
+      <div class="intro-grid">
+        <div class="intro-content">
+          <h2 class="section-title-left">Who We Are</h2>
+          <p class="intro-text">
+            We operate at the intersection of leadership, strategy, innovation, governance, and development, providing advisory services and implementing programs that drive sustainable growth, institutional excellence, and societal transformation.
+          </p>
+          <p class="intro-text">
+            EAI combines corporate intelligence, leadership development, strategic engagement, and execution capacity to help clients and communities navigate complexity, scale impact, and remain globally competitive.
+          </p>
+        </div>
+        <div class="intro-features">
+          <h3 class="features-heading">Our Multi-Arm Institution</h3>
+          <div class="feature-item">
+            <div class="feature-icon-small"><i class="fas fa-briefcase"></i></div>
+            <div class="feature-text">
+              <h4>Corporate Consultancy Solutions</h4>
+              <p>For organizations and brands</p>
+            </div>
+          </div>
+          <div class="feature-item">
+            <div class="feature-icon-small"><i class="fas fa-graduation-cap"></i></div>
+            <div class="feature-text">
+              <h4>Multi-sectoral Programs</h4>
+              <p>Building leadership and innovation capacity</p>
+            </div>
+          </div>
+          <div class="feature-item">
+            <div class="feature-icon-small"><i class="fas fa-users"></i></div>
+            <div class="feature-text">
+              <h4>Leadership Consortium</h4>
+              <p>Shaping the next generation of global leaders</p>
+            </div>
+          </div>
+          <a href="programs.html" class="btn btn-accent">Explore Our Programs</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CSR & Social Impact Section -->
+  <section class="csr-section">
+    <div class="container">
+      <div class="content-block">
+        <h2 class="section-title">Our CSR & Social Impact</h2>
+        <div class="csr-content">
+          <p>
+            Through the Emmanuel Agida Foundation, Emmanuel Agida International advances targeted social impact initiatives that support inclusive socio-economic development across underserved communities.
+          </p>
+          <p>
+            The Foundation delivers programs aligned with global development priorities, including poverty eradication, food security, education and health advancement, affordable and clean energy, innovation and infrastructure development, and the creation of sustainable cities and communities.
+          </p>
+          <p>
+            Its interventions are designed to empower women, children, and young people, fostering resilience, opportunity, and long-term community transformation, while reinforcing EAI's commitment to leadership excellence with purpose.
+          </p>
+          <a href="philanthropy.html" class="btn btn-accent">Read More About Our Impact</a>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- Our Commitment Section -->
-  <section class="features-section">
+  <section class="commitment-section">
     <div class="container">
       <h2 class="section-title">Our Commitment</h2>
-      <div class="features-grid">
-        <div class="feature-card">
-          <div class="feature-icon">
+      <p class="section-description">We deliver transformational solutions through six core pillars</p>
+      <div class="commitment-grid">
+        <div class="commitment-card">
+          <div class="commitment-icon">
             <i class="fas fa-users"></i>
           </div>
-          <h3>Promoting Leadership</h3>
-          <p>By fostering effective leadership, we can empower individuals to become engaged citizens, influential
-            leaders, and catalysts for change in their communities.</p>
+          <h3>Leadership Development</h3>
+          <p>Fostering effective leadership to empower engaged citizens and catalysts for change.</p>
         </div>
 
-        <div class="feature-card">
-          <div class="feature-icon">
+        <div class="commitment-card">
+          <div class="commitment-icon">
             <i class="fas fa-globe-americas"></i>
           </div>
-          <h3>Providing Global Exposure</h3>
-          <p>We provide access to global opportunities through international conferences and events that connect
-            individuals from around the world.</p>
+          <h3>Global Exposure</h3>
+          <p>Connecting individuals worldwide through international conferences and opportunities.</p>
         </div>
 
-        <div class="feature-card">
-          <div class="feature-icon">
+        <div class="commitment-card">
+          <div class="commitment-icon">
             <i class="fas fa-graduation-cap"></i>
           </div>
-          <h3>Enhancing Learning</h3>
-          <p>We offer a learning platform to support the personal development of emerging leaders, equipping,
-            encouraging, and enabling them to drive innovative initiatives.</p>
+          <h3>Learning Excellence</h3>
+          <p>Supporting personal development of emerging leaders through innovative platforms.</p>
         </div>
 
-        <div class="feature-card">
-          <div class="feature-icon">
+        <div class="commitment-card">
+          <div class="commitment-icon">
             <i class="fas fa-lightbulb"></i>
           </div>
-          <h3>Promoting Entrepreneurship</h3>
-          <p>We encourage individuals to embrace entrepreneurship to create job opportunities across various sectors and
-            foster collaboration.</p>
+          <h3>Entrepreneurship</h3>
+          <p>Creating job opportunities and fostering collaboration across various sectors.</p>
         </div>
 
-        <div class="feature-card">
-          <div class="feature-icon">
+        <div class="commitment-card">
+          <div class="commitment-icon">
             <i class="fas fa-handshake"></i>
           </div>
-          <h3>Facilitating Networking</h3>
-          <p>We provide a networking platform for leaders to connect with peers, learn from industry experts, and
-            explore opportunities for future collaboration.</p>
+          <h3>Strategic Networking</h3>
+          <p>Connecting leaders with peers and industry experts for future collaboration.</p>
         </div>
 
-        <div class="feature-card">
-          <div class="feature-icon">
+        <div class="commitment-card">
+          <div class="commitment-icon">
             <i class="fas fa-user-graduate"></i>
           </div>
-          <h3>Mentorship Programs</h3>
-          <p>Our mentorship programs provide guidance, support, and development opportunities to help individuals
-            achieve their goals and realize their full potential.</p>
+          <h3>Mentorship</h3>
+          <p>Providing guidance and support to help individuals achieve their full potential.</p>
         </div>
       </div>
     </div>
@@ -175,28 +234,47 @@
   <!-- Vision Roadmap Section -->
   <section class="vision-roadmap">
     <div class="container">
-      <h2 class="section-title">Our 2030 Vision Roadmap</h2>
+      <h2 class="section-title">Our 2035 Vision Roadmap</h2>
       <div class="roadmap-grid">
         <div class="roadmap-item">
           <div class="roadmap-icon"><i class="fas fa-globe-americas"></i></div>
-          <div class="roadmap-number">30+</div>
-          <div class="roadmap-label">To operate in 30+ Countries</div>
-          <div class="roadmap-subtitle">Global Presence</div>
+          <div class="roadmap-content">
+            <div class="roadmap-current">30+ Countries</div>
+            <div class="roadmap-label">Global Presence</div>
+            <div class="roadmap-target">(To operate in 50+ Countries)</div>
+          </div>
         </div>
 
         <div class="roadmap-item">
           <div class="roadmap-icon"><i class="fas fa-users"></i></div>
-          <div class="roadmap-number">1,000,000</div>
-          <div class="roadmap-label">To raise one million Leaders</div>
-          <div class="roadmap-subtitle">Leaders Developed</div>
+          <div class="roadmap-content">
+            <div class="roadmap-current">1,000,000+</div>
+            <div class="roadmap-label">Leadership Network</div>
+            <div class="roadmap-target">(To raise 1M+ Leaders)</div>
+          </div>
         </div>
 
         <div class="roadmap-item">
           <div class="roadmap-icon"><i class="fas fa-hands-helping"></i></div>
-          <div class="roadmap-number">1000+</div>
-          <div class="roadmap-label">To execute 1000+ projects</div>
-          <div class="roadmap-subtitle">Impact Projects</div>
+          <div class="roadmap-content">
+            <div class="roadmap-current">10,000+</div>
+            <div class="roadmap-label">Impact Projects</div>
+            <div class="roadmap-target">(To execute 10,000+ Projects)</div>
+          </div>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Case Studies Section -->
+  <section class="case-studies-section">
+    <div class="container">
+      <h2 class="section-title">Explore Our Case Studies</h2>
+      <div class="case-studies-content">
+        <p>
+          Explore how Emmanuel Agida International has transformed organizations and individuals through strategic leadership development programs. Each case study represents real-world challenges and measurable results achieved through our proven methodologies.
+        </p>
+        <a href="case.html" class="btn btn-accent">View All Case Studies</a>
       </div>
     </div>
   </section>
@@ -251,6 +329,22 @@
       </div>
     </div>
   </section>
+
+  <!-- Newsletter Modal -->
+  <div id="newsletterModal" class="modal">
+    <div class="modal-content">
+      <button class="modal-close" id="closeNewsletter">
+        <i class="fas fa-times"></i>
+      </button>
+      <div class="modal-header">
+        <h2>Subscribe to Our Newsletter</h2>
+        <p>Stay updated with insights on leadership development and organizational transformation</p>
+      </div>
+      <div id="substack-container">
+        <!-- Substack embed will be inserted here -->
+      </div>
+    </div>
+  </div>
 
   <!-- Footer -->
   <footer>
@@ -328,6 +422,30 @@
       const pressTrack = document.getElementById("pressTrack");
       if (pressTrack && pressTrack.children.length < 8) {
         // Cloning already done in HTML manually for simplicity
+      }
+
+      // Newsletter Modal
+      const newsletterBtn = document.getElementById("newsletterBtn");
+      const newsletterModal = document.getElementById("newsletterModal");
+      const closeNewsletter = document.getElementById("closeNewsletter");
+
+      if (newsletterBtn && newsletterModal) {
+        newsletterBtn.addEventListener("click", () => {
+          newsletterModal.classList.add("active");
+          document.body.style.overflow = "hidden";
+        });
+
+        closeNewsletter.addEventListener("click", () => {
+          newsletterModal.classList.remove("active");
+          document.body.style.overflow = "auto";
+        });
+
+        newsletterModal.addEventListener("click", (e) => {
+          if (e.target === newsletterModal) {
+            newsletterModal.classList.remove("active");
+            document.body.style.overflow = "auto";
+          }
+        });
       }
     });
   </script>

@@ -113,6 +113,8 @@ header {
     z-index: 1000;
     box-shadow: var(--shadow);
     transition: var(--transition);
+    gap: 30px;
+    flex-wrap: wrap;
 }
 
 header.scrolled {
@@ -120,9 +122,48 @@ header.scrolled {
     background: rgba(17, 17, 17, 0.98);
 }
 
+.logo-section {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
 .logo img {
     height: 50px;
     width: auto;
+    transition: var(--transition);
+}
+
+.logo img:hover {
+    transform: scale(1.05);
+}
+
+.tagline-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.tagline {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    color: var(--accent);
+    text-transform: uppercase;
+    margin: 0;
+    line-height: 1.2;
+    text-align: center;
+}
+
+.tagline-dot {
+    color: var(--primary);
+    margin: 0 2px;
 }
 
 nav ul {
