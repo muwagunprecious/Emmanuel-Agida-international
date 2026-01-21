@@ -917,3 +917,734 @@
         right: 15px;
     }
 }
+
+/* ========================================
+   ABOUT PAGE STYLES
+   ======================================== */
+
+/* About Hero Section */
+.about-hero-section {
+    padding: 120px 20px 80px;
+    text-align: center;
+    position: relative;
+}
+
+.about-hero-content {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.about-hero-title {
+    font-size: 3.2rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    background: linear-gradient(135deg, var(--accent), var(--primary-light));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.about-hero-subtitle {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--accent);
+    margin-bottom: 25px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.about-hero-description {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    color: rgba(255, 255, 255, 0.85);
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Who We Are Section */
+.who-we-are-section {
+    padding: 80px 20px;
+    background: linear-gradient(180deg, rgba(139, 69, 19, 0.03) 0%, rgba(210, 105, 30, 0.03) 100%);
+}
+
+.who-content {
+    max-width: 900px;
+    margin: 40px auto 0;
+    text-align: center;
+}
+
+.lead-text {
+    font-size: 1.3rem;
+    font-weight: 500;
+    line-height: 1.8;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 30px;
+}
+
+/* Vision Mission Mantra Section */
+.vmm-section {
+    padding: 100px 20px;
+    background: rgba(17, 17, 17, 0.5);
+}
+
+.vmm-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+    margin-top: 50px;
+}
+
+.vmm-card {
+    background: linear-gradient(135deg, rgba(139, 69, 19, 0.1), rgba(210, 105, 30, 0.1));
+    border: 2px solid rgba(210, 105, 30, 0.3);
+    border-radius: 20px;
+    padding: 50px 35px;
+    text-align: center;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.vmm-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: linear-gradient(90deg, var(--primary), var(--accent));
+    transform: scaleX(0);
+    transition: transform 0.4s ease;
+}
+
+.vmm-card:hover::before {
+    transform: scaleX(1);
+}
+
+.vmm-card:hover {
+    border-color: var(--accent);
+    transform: translateY(-10px);
+    box-shadow: 0 25px 60px rgba(139, 69, 19, 0.3);
+}
+
+.vmm-icon {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, var(--primary), var(--accent));
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 25px;
+    font-size: 2.5rem;
+    color: var(--white);
+    transition: all 0.4s ease;
+}
+
+.vmm-card:hover .vmm-icon {
+    transform: scale(1.1) rotate(5deg);
+}
+
+.vmm-card h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 20px;
+    color: var(--accent);
+}
+
+.vmm-card p {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.8);
+    margin: 0;
+}
+
+/* Why EAI Section */
+.why-eai-section {
+    padding: 100px 20px;
+    background: linear-gradient(135deg, rgba(210, 105, 30, 0.05), rgba(139, 69, 19, 0.05));
+}
+
+.why-eai-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 35px;
+    margin-top: 50px;
+}
+
+.why-eai-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(210, 105, 30, 0.2);
+    border-radius: 16px;
+    padding: 40px 30px;
+    text-align: center;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.why-eai-card::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--primary), var(--accent));
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.why-eai-card:hover::after {
+    transform: scaleX(1);
+}
+
+.why-eai-card:hover {
+    background: rgba(255, 255, 255, 0.06);
+    border-color: var(--accent);
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(139, 69, 19, 0.2);
+}
+
+.why-eai-icon {
+    width: 70px;
+    height: 70px;
+    background: linear-gradient(135deg, var(--primary), var(--accent));
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+    font-size: 2rem;
+    color: var(--white);
+    transition: all 0.3s ease;
+}
+
+.why-eai-card:hover .why-eai-icon {
+    transform: rotateY(360deg);
+}
+
+.why-eai-card h4 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 12px;
+    color: var(--white);
+}
+
+.why-eai-card p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.75);
+    margin: 0;
+}
+
+/* Commitment Final Section */
+.commitment-final-section {
+    padding: 100px 20px;
+    background: rgba(0, 0, 0, 0.3);
+}
+
+.commitment-final-content {
+    max-width: 900px;
+    margin: 40px auto 0;
+    text-align: center;
+}
+
+.commitment-final-text {
+    font-size: 1.2rem;
+    line-height: 1.9;
+    color: rgba(255, 255, 255, 0.85);
+    margin-bottom: 50px;
+}
+
+.core-values-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.value-item {
+    background: rgba(255, 255, 255, 0.05);
+    border: 2px solid rgba(210, 105, 30, 0.3);
+    border-radius: 16px;
+    padding: 35px 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    transition: all 0.3s ease;
+}
+
+.value-item:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: var(--accent);
+    transform: translateY(-5px);
+}
+
+.value-item i {
+    font-size: 2.5rem;
+    color: var(--accent);
+}
+
+.value-item span {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--white);
+}
+
+/* Responsive About Page */
+@media (max-width: 768px) {
+    .about-hero-section {
+        padding: 80px 20px 60px;
+    }
+
+    .about-hero-title {
+        font-size: 2rem;
+    }
+
+    .about-hero-subtitle {
+        font-size: 1.1rem;
+    }
+
+    .about-hero-description {
+        font-size: 1rem;
+    }
+
+    .lead-text {
+        font-size: 1.1rem;
+    }
+
+    .vmm-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .vmm-card {
+        padding: 40px 25px;
+    }
+
+    .why-eai-grid {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+
+    .core-values-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+
+    .commitment-final-text {
+        font-size: 1.05rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .about-hero-title {
+        font-size: 1.6rem;
+    }
+
+    .about-hero-subtitle {
+        font-size: 1rem;
+        letter-spacing: 1px;
+    }
+
+    .about-hero-description {
+        font-size: 0.95rem;
+    }
+
+    .lead-text {
+        font-size: 1rem;
+    }
+
+    .vmm-card {
+        padding: 30px 20px;
+    }
+
+    .vmm-icon {
+        width: 65px;
+        height: 65px;
+        font-size: 2rem;
+    }
+
+    .vmm-card h3 {
+        font-size: 1.2rem;
+    }
+
+    .why-eai-card {
+        padding: 30px 20px;
+    }
+
+    .why-eai-icon {
+        width: 60px;
+        height: 60px;
+        font-size: 1.6rem;
+    }
+
+    .core-values-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .value-item {
+        padding: 25px 20px;
+    }
+
+    .value-item i {
+        font-size: 2rem;
+    }
+
+    .value-item span {
+        font-size: 1.1rem;
+    }
+}
+
+/* ========================================
+   ABOUT US PAGE STYLES
+   ======================================== */
+
+/* Page Header Enhancement */
+.page-subtitle {
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.8);
+    margin-top: 15px;
+    font-weight: 400;
+}
+
+/* About Introduction Section */
+.about-intro-section {
+    padding: 80px 20px;
+    background: linear-gradient(180deg, rgba(139, 69, 19, 0.03) 0%, rgba(210, 105, 30, 0.03) 100%);
+}
+
+.intro-content-center {
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.lead-text {
+    font-size: 1.4rem;
+    line-height: 1.8;
+    color: rgba(255, 255, 255, 0.95);
+    font-weight: 500;
+    margin-bottom: 30px;
+}
+
+.body-text {
+    font-size: 1.1rem;
+    line-height: 1.9;
+    color: rgba(255, 255, 255, 0.85);
+    margin-bottom: 25px;
+}
+
+/* Vision, Mission, Mantra Section */
+.vmm-section {
+    padding: 100px 20px;
+    background: rgba(17, 17, 17, 0.5);
+}
+
+.vmm-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 40px;
+    margin-top: 50px;
+}
+
+.vmm-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(210, 105, 30, 0.2);
+    border-radius: 20px;
+    padding: 50px 35px;
+    text-align: center;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.vmm-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary), var(--accent));
+    transform: scaleX(0);
+    transition: transform 0.4s ease;
+}
+
+.vmm-card:hover::before {
+    transform: scaleX(1);
+}
+
+.vmm-highlight {
+    border-color: var(--accent);
+    background: rgba(210, 105, 30, 0.08);
+}
+
+.vmm-card:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: var(--accent);
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 25px 60px rgba(139, 69, 19, 0.3);
+}
+
+.vmm-icon {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, var(--primary), var(--accent));
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 30px;
+    font-size: 2.5rem;
+    color: var(--white);
+    transition: all 0.4s ease;
+}
+
+.vmm-card:hover .vmm-icon {
+    transform: rotateY(360deg) scale(1.1);
+}
+
+.vmm-card h3 {
+    font-size: 1.6rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: var(--accent);
+}
+
+.vmm-card p {
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: rgba(255, 255, 255, 0.8);
+    margin: 0;
+}
+
+/* Why EAI Section */
+.why-eai-section {
+    padding: 100px 20px;
+    background: linear-gradient(135deg, rgba(210, 105, 30, 0.08), rgba(139, 69, 19, 0.08));
+    position: relative;
+}
+
+.why-eai-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--accent), transparent);
+}
+
+.why-eai-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 30px;
+    margin-top: 50px;
+}
+
+.why-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(210, 105, 30, 0.2);
+    border-radius: 16px;
+    padding: 35px 25px;
+    text-align: center;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.why-card:hover {
+    background: rgba(255, 255, 255, 0.06);
+    border-color: var(--accent);
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(139, 69, 19, 0.2);
+}
+
+.why-icon {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, var(--primary), var(--accent));
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+    font-size: 1.8rem;
+    color: var(--white);
+    transition: all 0.3s ease;
+}
+
+.why-card:hover .why-icon {
+    transform: scale(1.1) rotate(5deg);
+}
+
+.why-card h4 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: var(--white);
+}
+
+.why-card p {
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.7);
+    margin: 0;
+}
+
+/* Commitment Statement Section */
+.commitment-statement-section {
+    padding: 100px 20px;
+    background: linear-gradient(135deg, rgba(139, 69, 19, 0.9), rgba(210, 105, 30, 0.9));
+    position: relative;
+}
+
+.commitment-statement-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" fill="none" stroke="rgba(255,255,255,0.03)" stroke-width="0.5"/></svg>');
+    background-size: 50px 50px;
+    opacity: 0.3;
+}
+
+.commitment-content {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+}
+
+.section-title-white {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 30px;
+    color: var(--white);
+    text-align: center;
+}
+
+.commitment-text {
+    font-size: 1.2rem;
+    line-height: 1.9;
+    color: rgba(255, 255, 255, 0.95);
+    font-weight: 400;
+}
+
+/* Responsive About Page */
+@media (max-width: 968px) {
+    .vmm-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .vmm-card {
+        padding: 40px 30px;
+    }
+
+    .why-eai-grid {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 25px;
+    }
+}
+
+@media (max-width: 768px) {
+    .about-intro-section,
+    .vmm-section,
+    .why-eai-section,
+    .commitment-statement-section {
+        padding: 70px 20px;
+    }
+
+    .lead-text {
+        font-size: 1.2rem;
+    }
+
+    .body-text {
+        font-size: 1rem;
+    }
+
+    .vmm-icon {
+        width: 70px;
+        height: 70px;
+        font-size: 2rem;
+    }
+
+    .vmm-card h3 {
+        font-size: 1.4rem;
+    }
+
+    .vmm-card p {
+        font-size: 1rem;
+    }
+
+    .why-eai-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .section-title-white {
+        font-size: 2rem;
+    }
+
+    .commitment-text {
+        font-size: 1.1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .page-subtitle {
+        font-size: 0.95rem;
+    }
+
+    .lead-text {
+        font-size: 1.05rem;
+    }
+
+    .body-text {
+        font-size: 0.95rem;
+    }
+
+    .vmm-card {
+        padding: 30px 20px;
+    }
+
+    .vmm-icon {
+        width: 60px;
+        height: 60px;
+        font-size: 1.6rem;
+    }
+
+    .vmm-card h3 {
+        font-size: 1.2rem;
+    }
+
+    .vmm-card p {
+        font-size: 0.95rem;
+    }
+
+    .why-icon {
+        width: 50px;
+        height: 50px;
+        font-size: 1.4rem;
+    }
+
+    .why-card h4 {
+        font-size: 1rem;
+    }
+
+    .why-card p {
+        font-size: 0.9rem;
+    }
+
+    .section-title-white {
+        font-size: 1.6rem;
+    }
+
+    .commitment-text {
+        font-size: 1rem;
+    }
+}
