@@ -1085,6 +1085,10 @@ footer::before {
         padding: 10px 15px;
     }
 
+    header.scrolled {
+        padding: 10px 15px;
+    }
+
     .logo img {
         height: 40px;
     }
