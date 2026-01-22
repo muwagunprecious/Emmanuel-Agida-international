@@ -1090,7 +1090,12 @@ footer::before {
     }
 
     .tagline-section {
-        display: none;
+        display: flex;
+    }
+
+    .tagline {
+        font-size: 0.5rem;
+        letter-spacing: 0.3px;
     }
 
     .menu-toggle {
