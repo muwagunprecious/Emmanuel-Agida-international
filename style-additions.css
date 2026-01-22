@@ -281,40 +281,25 @@
     margin-top: 20px;
 }
 
-.founder-image-placeholder {
-    background: linear-gradient(135deg, rgba(139, 69, 19, 0.3), rgba(210, 105, 30, 0.3));
-    border: 2px solid rgba(210, 105, 30, 0.3);
+.founder-image {
     border-radius: 20px;
-    padding: 60px 40px;
-    min-height: 400px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
     overflow: hidden;
-    backdrop-filter: blur(10px);
 }
 
-.founder-image-placeholder::before {
-    content: '';
-    position: absolute;
-    top: -50%;
-    right: -50%;
-    width: 200%;
-    height: 200%;
-    background: radial-gradient(circle, rgba(210, 105, 30, 0.1) 0%, transparent 70%);
-    animation: pulse 3s ease-in-out infinite;
-}
-
-@keyframes pulse {
-    0%, 100% { transform: scale(1); opacity: 0.5; }
-    50% { transform: scale(1.1); opacity: 0.8; }
+.founder-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 20px;
+    display: block;
 }
 
 .founder-quote {
     text-align: center;
     position: relative;
-    z-index: 1;
+    z-index: 2;
+    padding: 30px;
+    margin-top: auto;
 }
 
 .founder-quote i {
@@ -436,6 +421,17 @@
     right: 0;
     height: 2px;
     background: linear-gradient(90deg, transparent, var(--accent), transparent);
+}
+
+.csr-wrapper {
+    background: var(--dark-light);
+    padding: 40px;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.csr-wrapper .section-title {
+    margin-bottom: 40px;
 }
 
 .csr-content {
@@ -695,9 +691,8 @@
         padding-right: 0;
     }
 
-    .founder-image-placeholder {
+    .founder-image {
         min-height: 300px;
-        padding: 40px 30px;
     }
 
     .founder-quote p {
@@ -789,18 +784,13 @@
         margin-top: 15px;
     }
 
-    .founder-image-placeholder {
+    .founder-image {
         min-height: 280px;
-        padding: 40px 25px;
         order: -1;
     }
 
     .founder-quote p {
         font-size: 1.25rem;
-    }
-
-    .founder-image-placeholder {
-        order: -1;
     }
 
     .commitment-grid {
@@ -877,9 +867,8 @@
         line-height: 1.7;
     }
 
-    .founder-image-placeholder {
+    .founder-image {
         min-height: 220px;
-        padding: 30px 15px;
     }
 
     .founder-quote i {
@@ -1411,6 +1400,7 @@
     font-weight: 700;
     line-height: 1.2;
     color: var(--white);
+    margin-top: 0;
     margin-bottom: 25px;
     background: linear-gradient(135deg, var(--white), rgba(210, 105, 30, 0.9));
     -webkit-background-clip: text;
@@ -2323,6 +2313,7 @@
     font-weight: 700;
     line-height: 1.2;
     color: var(--white);
+    margin-top: 0;
     margin-bottom: 25px;
     background: linear-gradient(135deg, var(--white), rgba(210, 105, 30, 0.9));
     -webkit-background-clip: text;
