@@ -1357,29 +1357,179 @@
 
 /* About Introduction Section */
 .about-intro-section {
-    padding: 80px 20px;
-    background: linear-gradient(180deg, rgba(139, 69, 19, 0.03) 0%, rgba(210, 105, 30, 0.03) 100%);
+    padding: 100px 20px;
+    background: linear-gradient(135deg, rgba(17, 17, 17, 0.95) 0%, rgba(139, 69, 19, 0.1) 100%);
+    position: relative;
+    overflow: hidden;
 }
 
-.intro-content-center {
-    max-width: 900px;
-    margin: 0 auto;
-    text-align: center;
+.about-intro-section::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -10%;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(210, 105, 30, 0.15), transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
 }
 
-.lead-text {
-    font-size: 1.4rem;
+.intro-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 60px;
+    align-items: center;
+    margin-bottom: 60px;
+}
+
+.intro-content {
+    position: relative;
+    z-index: 1;
+}
+
+.intro-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: linear-gradient(135deg, var(--primary), var(--accent));
+    padding: 8px 20px;
+    border-radius: 25px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--white);
+    margin-bottom: 25px;
+    box-shadow: 0 4px 15px rgba(210, 105, 30, 0.3);
+}
+
+.intro-badge i {
+    font-size: 0.9rem;
+}
+
+.intro-heading {
+    font-size: 2.8rem;
+    font-weight: 700;
+    line-height: 1.2;
+    color: var(--white);
+    margin-bottom: 25px;
+    background: linear-gradient(135deg, var(--white), rgba(210, 105, 30, 0.9));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.intro-description {
+    font-size: 1.15rem;
     line-height: 1.8;
-    color: rgba(255, 255, 255, 0.95);
-    font-weight: 500;
+    color: rgba(255, 255, 255, 0.85);
     margin-bottom: 30px;
 }
 
-.body-text {
+.intro-highlights {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.highlight-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.highlight-item i {
+    color: var(--accent);
     font-size: 1.1rem;
-    line-height: 1.9;
-    color: rgba(255, 255, 255, 0.85);
-    margin-bottom: 25px;
+    flex-shrink: 0;
+}
+
+.intro-visual {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.intro-stat-card {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(210, 105, 30, 0.3);
+    border-radius: 16px;
+    padding: 30px;
+    text-align: center;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.intro-stat-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, var(--primary), var(--accent));
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.intro-stat-card:hover::before {
+    transform: scaleX(1);
+}
+
+.intro-stat-card:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: var(--accent);
+    transform: translateX(-5px);
+}
+
+.intro-stat-card i {
+    font-size: 2.5rem;
+    background: linear-gradient(135deg, var(--primary), var(--accent));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 15px;
+}
+
+.intro-stat-card h3 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--white);
+    margin-bottom: 8px;
+}
+
+.intro-stat-card p {
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.7);
+    margin: 0;
+}
+
+.about-core-text {
+    max-width: 1000px;
+    margin: 0 auto;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.about-core-text p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: rgba(255, 255, 255, 0.8);
+    margin: 0;
+}
+
+/* Common Styles */
+.section-title-white {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 30px;
+    color: var(--white);
+    text-align: center;
 }
 
 /* Vision, Mission, Mantra Section */
@@ -1541,8 +1691,9 @@
 /* Commitment Statement Section */
 .commitment-statement-section {
     padding: 100px 20px;
-    background: linear-gradient(135deg, rgba(139, 69, 19, 0.9), rgba(210, 105, 30, 0.9));
+    background: linear-gradient(135deg, rgba(17, 17, 17, 0.9) 0%, rgba(139, 69, 19, 0.15) 100%);
     position: relative;
+    overflow: hidden;
 }
 
 .commitment-statement-section::before {
@@ -1552,32 +1703,134 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" fill="none" stroke="rgba(255,255,255,0.03)" stroke-width="0.5"/></svg>');
-    background-size: 50px 50px;
-    opacity: 0.3;
+    background: 
+        radial-gradient(circle at 20% 50%, rgba(210, 105, 30, 0.08) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(139, 69, 19, 0.06) 0%, transparent 50%);
+    pointer-events: none;
 }
 
-.commitment-content {
-    max-width: 800px;
-    margin: 0 auto;
-    text-align: center;
+.commitment-wrapper {
     position: relative;
     z-index: 1;
 }
 
-.section-title-white {
-    font-size: 2.5rem;
-    font-weight: 700;
-    margin-bottom: 30px;
+.commitment-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.commitment-icon {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 25px;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.2rem;
     color: var(--white);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.commitment-underline {
+    width: 100px;
+    height: 4px;
+    background: linear-gradient(90deg, transparent, var(--white), transparent);
+    margin: 20px auto 0;
+    border-radius: 2px;
+}
+
+.commitment-content {
+    max-width: 900px;
+    margin: 0 auto 60px;
     text-align: center;
 }
 
-.commitment-text {
-    font-size: 1.2rem;
+.commitment-main-text {
+    font-size: 1.25rem;
     line-height: 1.9;
     color: rgba(255, 255, 255, 0.95);
     font-weight: 400;
+    margin: 0;
+}
+
+.commitment-pillars {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 30px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.pillar {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 16px;
+    padding: 35px 25px;
+    text-align: center;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.pillar::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 3px;
+    background: var(--white);
+    transition: width 0.3s ease;
+}
+
+.pillar:hover::before {
+    width: 80%;
+}
+
+.pillar:hover {
+    background: rgba(255, 255, 255, 0.15);
+    border-color: rgba(255, 255, 255, 0.4);
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+}
+
+.pillar-icon {
+    width: 60px;
+    height: 60px;
+    margin: 0 auto 20px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+    color: var(--white);
+    transition: all 0.3s ease;
+}
+
+.pillar:hover .pillar-icon {
+    background: rgba(255, 255, 255, 0.3);
+    transform: scale(1.1) rotate(5deg);
+}
+
+.pillar h4 {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: var(--white);
+    margin-bottom: 12px;
+}
+
+.pillar p {
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.85);
+    margin: 0;
+    line-height: 1.6;
 }
 
 /* Responsive About Page */
@@ -1597,6 +1850,21 @@
     }
 }
 
+@media (max-width: 1024px) {
+    .intro-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+    
+    .intro-heading {
+        font-size: 2.4rem;
+    }
+    
+    .commitment-pillars {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
 @media (max-width: 768px) {
     .about-intro-section,
     .vmm-section,
@@ -1604,12 +1872,21 @@
     .commitment-statement-section {
         padding: 70px 20px;
     }
-
-    .lead-text {
-        font-size: 1.2rem;
+    
+    .intro-heading {
+        font-size: 2rem;
     }
-
-    .body-text {
+    
+    .intro-description {
+        font-size: 1.05rem;
+    }
+    
+    .intro-badge {
+        font-size: 0.8rem;
+        padding: 6px 16px;
+    }
+    
+    .about-core-text p {
         font-size: 1rem;
     }
 
@@ -1635,9 +1912,20 @@
     .section-title-white {
         font-size: 2rem;
     }
-
-    .commitment-text {
+    
+    .commitment-icon {
+        width: 70px;
+        height: 70px;
+        font-size: 2rem;
+    }
+    
+    .commitment-main-text {
         font-size: 1.1rem;
+    }
+    
+    .commitment-pillars {
+        grid-template-columns: 1fr;
+        gap: 20px;
     }
 }
 
@@ -1646,8 +1934,70 @@
         font-size: 0.95rem;
     }
 
-    .lead-text {
-        font-size: 1.05rem;
+    .intro-heading {
+        font-size: 1.75rem;
+    }
+    
+    .intro-description {
+        font-size: 0.95rem;
+    }
+    
+    .intro-stat-card {
+        padding: 25px 20px;
+    }
+    
+    .intro-stat-card i {
+        font-size: 2rem;
+    }
+    
+    .intro-stat-card h3 {
+        font-size: 1.1rem;
+    }
+    
+    .about-core-text p {
+        font-size: 0.95rem;
+    }
+    
+    .about-intro-section,
+    .vmm-section,
+    .why-eai-section,
+    .commitment-statement-section {
+        padding: 50px 15px;
+    }
+
+    .vmm-card {
+        padding: 30px 20px;
+    }
+
+    .vmm-icon {
+        width: 60px;
+        height: 60px;
+        font-size: 1.7rem;
+    }
+
+    .section-title-white {
+        font-size: 1.75rem;
+    }
+    
+    .commitment-icon {
+        width: 60px;
+        height: 60px;
+        font-size: 1.8rem;
+        margin-bottom: 20px;
+    }
+
+    .commitment-main-text {
+        font-size: 1rem;
+    }
+    
+    .pillar {
+        padding: 30px 20px;
+    }
+    
+    .pillar h4 {
+        font-size: 1.15rem;
+    }
+}
     }
 
     .body-text {
