@@ -3250,6 +3250,14 @@
    MEDIA PAGE (media.html) STYLES
    ============================================ */
 
+/* Media Page Containers */
+#videos,
+#podcasts,
+#press {
+    padding-bottom: 80px;
+    min-height: 400px;
+}
+
 /* Tabs */
 .tabs-container {
     display: flex;
