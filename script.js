@@ -4,6 +4,60 @@ document.addEventListener('DOMContentLoaded', () => {
     const nav = document.querySelector('nav');
     const navLinks = document.querySelectorAll('nav ul li a');
 
+    // ========================================
+    // TYPEWRITER ANIMATION
+    // ========================================
+    const typewriterElement = document.getElementById('typewriter');
+    
+    if (typewriterElement) {
+        const phrases = [
+            'Investing in Leaders',
+            'Transforming Organizations',
+            'Building Sustainable Futures'
+        ];
+        
+        let phraseIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+        let typingSpeed = 80;
+        
+        function typeWriter() {
+            const currentPhrase = phrases[phraseIndex];
+            
+            if (isDeleting) {
+                // Remove characters
+                typewriterElement.textContent = currentPhrase.substring(0, charIndex - 1);
+                charIndex--;
+                typingSpeed = 40; // Faster when deleting
+            } else {
+                // Add characters
+                typewriterElement.textContent = currentPhrase.substring(0, charIndex + 1);
+                charIndex++;
+                typingSpeed = 80; // Normal speed when typing
+            }
+            
+            // Check if word is complete
+            if (!isDeleting && charIndex === currentPhrase.length) {
+                // Pause at end of phrase
+                typingSpeed = 2000;
+                isDeleting = true;
+            } else if (isDeleting && charIndex === 0) {
+                // Move to next phrase
+                isDeleting = false;
+                phraseIndex = (phraseIndex + 1) % phrases.length;
+                typingSpeed = 500; // Pause before typing next phrase
+            }
+            
+            setTimeout(typeWriter, typingSpeed);
+        }
+        
+        // Start typewriter after a brief delay
+        setTimeout(typeWriter, 800);
+    }
+
+    // ========================================
+    // STICKY HEADER
+    // ========================================
     // Sticky Header Effect
     window.addEventListener('scroll', () => {
         if (window.scrollY > 50) {
