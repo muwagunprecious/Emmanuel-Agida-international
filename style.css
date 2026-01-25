@@ -738,9 +738,9 @@ footer::before {
 
 .footer-grid {
     display: grid;
-    grid-template-columns: 2fr 1fr 1fr 1.2fr 1.5fr;
+    grid-template-columns: 2fr 1fr 1fr 1.5fr;
     gap: 40px;
-    margin-bottom: 40px;
+    margin-bottom: 0;
 }
 
 .footer-section h3 {
@@ -922,8 +922,8 @@ footer::before {
     }
 
     .footer-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 40px;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        gap: 30px;
     }
 
     .footer-about {
@@ -1066,7 +1066,7 @@ footer::before {
 
     .footer-grid {
         grid-template-columns: 1fr 1fr;
-        gap: 35px;
+        gap: 30px;
     }
 
     .footer-about {
@@ -1143,11 +1143,33 @@ footer::before {
 
     .footer-grid {
         grid-template-columns: 1fr;
-        gap: 30px;
+        gap: 25px;
     }
 
     .footer-about {
         padding-right: 0;
+    }
+
+    .footer-section {
+        text-align: center;
+    }
+
+    .footer-section ul {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer-contact-info {
+        align-items: center;
+    }
+
+    .footer-contact-item {
+        justify-content: center;
+    }
+
+    .social-links {
+        justify-content: center;
     }
 
     .footer-bottom-links {
