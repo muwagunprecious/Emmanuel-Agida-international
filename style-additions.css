@@ -882,6 +882,11 @@
     animation: slideIn 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+.modal-content.newsletter-modal {
+    max-width: 520px;
+    padding: 40px 45px;
+}
+
 @keyframes slideIn {
     from {
         transform: translateY(-80px) scale(0.95);
@@ -918,12 +923,29 @@
 }
 
 .modal-header {
-    margin-bottom: 35px;
+    margin-bottom: 25px;
     text-align: center;
 }
 
+.newsletter-icon {
+    width: 70px;
+    height: 70px;
+    background: linear-gradient(135deg, var(--primary), var(--accent));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+    box-shadow: 0 10px 30px rgba(210, 105, 30, 0.3);
+}
+
+.newsletter-icon i {
+    font-size: 1.8rem;
+    color: var(--white);
+}
+
 .modal-header h2 {
-    font-size: 2rem;
+    font-size: 1.8rem;
     margin-bottom: 15px;
     background: linear-gradient(135deg, var(--accent), var(--primary-light));
     -webkit-background-clip: text;
@@ -933,12 +955,92 @@
 
 .modal-header p {
     color: rgba(255, 255, 255, 0.7);
-    font-size: 1rem;
-    line-height: 1.6;
+    font-size: 0.95rem;
+    line-height: 1.7;
 }
 
+/* Newsletter Benefits */
+.newsletter-benefits {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    justify-content: center;
+    margin-bottom: 25px;
+    padding: 15px 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.benefit-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.8);
+    padding: 6px 12px;
+    background: rgba(210, 105, 30, 0.1);
+    border-radius: 20px;
+    border: 1px solid rgba(210, 105, 30, 0.2);
+}
+
+.benefit-item i {
+    color: var(--accent);
+    font-size: 0.85rem;
+}
+
+/* Substack Container */
 #substack-container {
-    margin-top: 25px;
+    margin: 20px 0;
+    border-radius: 12px;
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.03);
+    padding: 10px;
+}
+
+#substack-container iframe {
+    border-radius: 8px;
+    display: block;
+}
+
+/* Newsletter Privacy Note */
+.newsletter-privacy {
+    text-align: center;
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.5);
+    margin-top: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+}
+
+.newsletter-privacy i {
+    font-size: 0.75rem;
+    color: var(--accent);
+}
+
+/* Footer Newsletter Section */
+.footer-newsletter {
+    min-width: 280px;
+}
+
+.footer-newsletter-text {
+    font-size: 0.9rem !important;
+    color: rgba(255, 255, 255, 0.7) !important;
+    margin-bottom: 15px !important;
+    line-height: 1.6 !important;
+}
+
+.footer-newsletter-embed {
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 10px;
+    padding: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.footer-newsletter-embed iframe {
+    border-radius: 6px;
+    display: block;
 }
 
 /* ========================================
@@ -1110,6 +1212,15 @@
         padding: 30px 20px;
     }
 
+    .modal-content.newsletter-modal {
+        padding: 35px 25px;
+    }
+
+    .newsletter-benefits {
+        flex-direction: column;
+        align-items: center;
+    }
+
     .modal-header h2 {
         font-size: 1.5rem;
     }
@@ -1279,12 +1390,47 @@
         border-radius: 16px;
     }
 
+    .modal-content.newsletter-modal {
+        padding: 30px 20px;
+    }
+
+    .newsletter-icon {
+        width: 60px;
+        height: 60px;
+        margin-bottom: 15px;
+    }
+
+    .newsletter-icon i {
+        font-size: 1.5rem;
+    }
+
     .modal-header h2 {
         font-size: 1.4rem;
     }
 
     .modal-header p {
-        font-size: 0.9rem;
+        font-size: 0.85rem;
+        line-height: 1.6;
+    }
+
+    .newsletter-benefits {
+        gap: 8px;
+        padding: 12px 0;
+        margin-bottom: 20px;
+    }
+
+    .benefit-item {
+        font-size: 0.75rem;
+        padding: 5px 10px;
+    }
+
+    #substack-container {
+        padding: 8px;
+        margin: 15px 0;
+    }
+
+    .newsletter-privacy {
+        font-size: 0.75rem;
     }
 
     .modal-close {
