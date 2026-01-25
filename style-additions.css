@@ -2,6 +2,231 @@
    MODERN HOMEPAGE REDESIGN - 2026
    ======================================== */
 
+/* ========================================
+   DROPDOWN NAVIGATION MENU
+   ======================================== */
+
+/* Dropdown Container */
+.nav-dropdown {
+    position: relative;
+}
+
+.nav-dropdown > a {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.nav-dropdown > a .dropdown-icon {
+    font-size: 0.7rem;
+    transition: transform 0.3s ease;
+}
+
+.nav-dropdown:hover > a .dropdown-icon {
+    transform: rotate(180deg);
+}
+
+/* Dropdown Menu */
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%) translateY(10px);
+    background: rgba(17, 17, 17, 0.98);
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(139, 69, 19, 0.3);
+    border-radius: 12px;
+    min-width: 200px;
+    padding: 10px 0;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4),
+                0 5px 15px rgba(139, 69, 19, 0.1);
+    z-index: 1001;
+}
+
+.dropdown-menu::before {
+    content: '';
+    position: absolute;
+    top: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-bottom: 8px solid rgba(139, 69, 19, 0.3);
+}
+
+.dropdown-menu::after {
+    content: '';
+    position: absolute;
+    top: -6px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-bottom: 6px solid rgba(17, 17, 17, 0.98);
+}
+
+/* Show dropdown on hover */
+.nav-dropdown:hover .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+}
+
+/* Dropdown Items */
+.dropdown-menu li {
+    width: 100%;
+}
+
+.dropdown-menu li a {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 20px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--white);
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+
+.dropdown-menu li a i {
+    font-size: 0.85rem;
+    color: var(--accent);
+    width: 20px;
+    text-align: center;
+    opacity: 0.8;
+    transition: all 0.3s ease;
+}
+
+.dropdown-menu li a:hover {
+    background: rgba(139, 69, 19, 0.15);
+    color: var(--accent);
+    padding-left: 25px;
+}
+
+.dropdown-menu li a:hover i {
+    opacity: 1;
+    transform: scale(1.1);
+}
+
+.dropdown-menu li a::after {
+    display: none !important;
+}
+
+/* Active state for dropdown items */
+.dropdown-menu li a.active {
+    background: rgba(139, 69, 19, 0.2);
+    color: var(--accent);
+}
+
+/* Divisions text highlighting when any child is active */
+.nav-dropdown.has-active-child > a {
+    color: var(--accent);
+}
+
+/* Mobile Dropdown Styles */
+@media (max-width: 768px) {
+    .nav-dropdown > a .dropdown-icon {
+        margin-left: auto;
+        font-size: 0.9rem;
+        padding: 5px;
+    }
+
+    .nav-dropdown > .dropdown-menu {
+        position: static !important;
+        transform: none !important;
+        background: rgba(30, 30, 30, 0.95) !important;
+        border: none !important;
+        border-radius: 0 !important;
+        border-left: 3px solid var(--accent) !important;
+        margin-left: 20px !important;
+        padding: 0 !important;
+        max-height: 0;
+        overflow: hidden;
+        opacity: 1 !important;
+        visibility: visible !important;
+        box-shadow: none !important;
+        transition: max-height 0.3s ease, padding 0.3s ease;
+        display: block !important;
+        width: calc(100% - 20px) !important;
+    }
+
+    .nav-dropdown > .dropdown-menu::before,
+    .nav-dropdown > .dropdown-menu::after {
+        display: none !important;
+    }
+
+    /* Override the main nav styles for dropdown items */
+    .nav-dropdown > .dropdown-menu > li {
+        opacity: 1 !important;
+        transform: none !important;
+        animation: none !important;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+        width: 100% !important;
+        display: block !important;
+        background: transparent !important;
+    }
+
+    .nav-dropdown > .dropdown-menu > li:last-child {
+        border-bottom: none !important;
+    }
+
+    .nav-dropdown > .dropdown-menu > li > a {
+        color: #ffffff !important;
+        display: flex !important;
+        align-items: center !important;
+        gap: 12px !important;
+        padding: 14px 20px !important;
+        font-size: 0.95rem !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+        width: 100% !important;
+        background: transparent !important;
+        text-decoration: none !important;
+        line-height: 1.4 !important;
+    }
+
+    .nav-dropdown > .dropdown-menu > li > a > i {
+        color: #D2691E !important;
+        opacity: 1 !important;
+        display: inline-block !important;
+        visibility: visible !important;
+        font-size: 1rem !important;
+        width: 20px !important;
+        flex-shrink: 0 !important;
+    }
+
+    .nav-dropdown.open > .dropdown-menu {
+        max-height: 350px !important;
+        padding: 10px 0 !important;
+        overflow: visible !important;
+    }
+
+    .nav-dropdown.open > a .dropdown-icon {
+        transform: rotate(180deg);
+    }
+
+    .nav-dropdown > .dropdown-menu > li > a:hover,
+    .nav-dropdown > .dropdown-menu > li > a:active {
+        background-color: rgba(139, 69, 19, 0.2) !important;
+        padding-left: 25px !important;
+    }
+
+    /* Prevent hover effects on touch devices */
+    .nav-dropdown:hover > .dropdown-menu {
+        max-height: 0;
+        padding: 0;
+    }
+
+    .nav-dropdown.open:hover > .dropdown-menu {
+        max-height: 350px !important;
+        padding: 10px 0 !important;
+    }
+}
+
 /* Hero Section - Minimal & Impactful */
 .hero-section {
     position: relative;

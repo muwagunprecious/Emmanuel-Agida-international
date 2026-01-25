@@ -5,6 +5,52 @@ document.addEventListener('DOMContentLoaded', () => {
     const navLinks = document.querySelectorAll('nav ul li a');
 
     // ========================================
+    // DROPDOWN MENU FUNCTIONALITY
+    // ========================================
+    const navDropdowns = document.querySelectorAll('.nav-dropdown');
+    
+    navDropdowns.forEach(dropdown => {
+        const dropdownLink = dropdown.querySelector(':scope > a');
+        const dropdownMenu = dropdown.querySelector('.dropdown-menu');
+        
+        if (dropdownLink && dropdownMenu) {
+            // Handle click for mobile
+            dropdownLink.addEventListener('click', (e) => {
+                // Only prevent default on mobile
+                if (window.innerWidth <= 768) {
+                    e.preventDefault();
+                    e.stopPropagation(); // Prevent the click from bubbling up and closing the nav
+                    dropdown.classList.toggle('open');
+                    
+                    // Close other dropdowns
+                    navDropdowns.forEach(other => {
+                        if (other !== dropdown) {
+                            other.classList.remove('open');
+                        }
+                    });
+                }
+            });
+            
+            // Check if any child link is active and add class to parent
+            const childLinks = dropdownMenu.querySelectorAll('a');
+            childLinks.forEach(link => {
+                if (link.classList.contains('active')) {
+                    dropdown.classList.add('has-active-child');
+                }
+            });
+        }
+    });
+
+    // Close dropdowns when clicking outside
+    document.addEventListener('click', (e) => {
+        if (!e.target.closest('.nav-dropdown')) {
+            navDropdowns.forEach(dropdown => {
+                dropdown.classList.remove('open');
+            });
+        }
+    });
+
+    // ========================================
     // TYPEWRITER ANIMATION
     // ========================================
     const typewriterElement = document.getElementById('typewriter');
@@ -80,12 +126,18 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Close menu when clicking a link
+    // Close menu when clicking a link (but not the dropdown toggle)
     navLinks.forEach(link => {
-        link.addEventListener('click', () => {
-            menuToggle.classList.remove('open');
-            nav.classList.remove('open');
-            document.body.style.overflow = '';
+        link.addEventListener('click', (e) => {
+            // Don't close menu if clicking on dropdown toggle (parent link of dropdown)
+            const isDropdownToggle = link.closest('.nav-dropdown') && 
+                                     link === link.closest('.nav-dropdown').querySelector(':scope > a');
+            
+            if (!isDropdownToggle) {
+                menuToggle.classList.remove('open');
+                nav.classList.remove('open');
+                document.body.style.overflow = '';
+            }
         });
     });
 

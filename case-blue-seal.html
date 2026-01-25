@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style-additions.css">
   <title>Blue Seal Energy Plant Launch - Case Study | EAI</title>
   <style>
     /* Case Study Page Specific Styles */
@@ -287,9 +288,14 @@
       <ul>
         <li><a href="index.html">Home</a></li>
         <li><a href="about.html">About</a></li>
-        <li><a href="consultancy.html">Consultancy</a></li>
-        <li><a href="programs.html">Programs</a></li>
-        <li><a href="consortium.html">Consortium</a></li>
+        <li class="nav-dropdown">
+          <a href="#">Divisions <i class="fas fa-chevron-down dropdown-icon"></i></a>
+          <ul class="dropdown-menu">
+            <li><a href="consultancy.html" style="color: #fff !important;"><i class="fas fa-briefcase" style="color: #D2691E;"></i> Consultancy</a></li>
+            <li><a href="programs.html" style="color: #fff !important;"><i class="fas fa-graduation-cap" style="color: #D2691E;"></i> Programs</a></li>
+            <li><a href="consortium.html" style="color: #fff !important;"><i class="fas fa-network-wired" style="color: #D2691E;"></i> Consortium</a></li>
+          </ul>
+        </li>
         <li><a href="case.html">Case Study</a></li>
         <li><a href="philanthropy.html">Philanthropy</a></li>
         <li><a href="pub.html">Events</a></li>
