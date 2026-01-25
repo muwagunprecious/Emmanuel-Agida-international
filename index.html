@@ -538,21 +538,50 @@
       const newsletterModal = document.getElementById("newsletterModal");
       const closeNewsletter = document.getElementById("closeNewsletter");
 
-      if (newsletterBtn && newsletterModal) {
-        newsletterBtn.addEventListener("click", () => {
+      // Function to show newsletter modal
+      function showNewsletterModal() {
+        if (newsletterModal) {
           newsletterModal.classList.add("active");
           document.body.style.overflow = "hidden";
+        }
+      }
+
+      // Function to close newsletter modal
+      function closeNewsletterModal() {
+        if (newsletterModal) {
+          newsletterModal.classList.remove("active");
+          document.body.style.overflow = "auto";
+          // Mark as shown in localStorage
+          localStorage.setItem("newsletterModalShown", Date.now().toString());
+        }
+      }
+
+      // Auto-show newsletter modal on page load (once per session/day)
+      if (newsletterModal) {
+        const lastShown = localStorage.getItem("newsletterModalShown");
+        const oneDayInMs = 24 * 60 * 60 * 1000; // 24 hours
+        
+        // Show modal if never shown or more than 24 hours ago
+        if (!lastShown || (Date.now() - parseInt(lastShown)) > oneDayInMs) {
+          // Delay modal appearance for better UX (let page load first)
+          setTimeout(() => {
+            showNewsletterModal();
+          }, 2000); // 2 second delay
+        }
+      }
+
+      if (newsletterBtn && newsletterModal) {
+        newsletterBtn.addEventListener("click", () => {
+          showNewsletterModal();
         });
 
         closeNewsletter.addEventListener("click", () => {
-          newsletterModal.classList.remove("active");
-          document.body.style.overflow = "auto";
+          closeNewsletterModal();
         });
 
         newsletterModal.addEventListener("click", (e) => {
           if (e.target === newsletterModal) {
-            newsletterModal.classList.remove("active");
-            document.body.style.overflow = "auto";
+            closeNewsletterModal();
           }
         });
       }

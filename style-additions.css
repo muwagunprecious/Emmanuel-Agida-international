@@ -1168,23 +1168,23 @@
     }
     
     .footer-section {
-        text-align: center;
+        text-align: left;
     }
     
     .footer-section ul {
         display: flex;
         flex-direction: column;
-        align-items: center;
+        align-items: flex-start;
     }
     
     .footer-contact-info {
         display: flex;
         flex-direction: column;
-        align-items: center;
+        align-items: flex-start;
     }
     
     .footer-contact-item {
-        justify-content: center;
+        justify-content: flex-start;
     }
     
     .footer-newsletter-row {
@@ -1194,8 +1194,8 @@
     
     .footer-newsletter-container {
         flex-direction: column;
-        align-items: center;
-        text-align: center;
+        align-items: flex-start;
+        text-align: left;
         gap: 15px;
     }
     
@@ -1222,18 +1222,19 @@
     }
     
     .social-links {
-        justify-content: center;
+        justify-content: flex-start;
     }
     
     .footer-bottom-content {
         flex-direction: column;
         gap: 15px;
-        text-align: center;
+        text-align: left;
     }
     
     .footer-bottom-links {
         flex-direction: column;
         gap: 10px;
+        align-items: flex-start;
     }
 }
 
